@@ -34,7 +34,23 @@
 			}
 			else {
 				var newdiv = document.createElement('div');
-				newdiv.innerHTML = "Tag " + (counter + 1) + " <br><input type='text' name='myNoName'>";
+				newdiv.className="row";
+				
+				var newspan = document.createElement('span');
+				newspan.className="label";
+				newspan.innerText="I am you new tag:";
+				newdiv.appendChild(newspan);
+				
+				var newspan2 = document.createElement('span');
+				newspan2.className='formw';
+				
+				var newtextarea = document.createElement('textarea');
+				newtextarea.cols=2;
+				newtextarea.rows=4;
+				newspan2.appendChild(newtextarea);
+				
+				newdiv.appendChild(newspan2);
+				
 				document.getElementById(divName).appendChild(newdiv);
 				counter++;
 			}
