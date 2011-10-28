@@ -13,11 +13,10 @@
      $("#urlinput").keypress(function(event) {
        if ( event.which == 13 ) {
          event.preventDefault();
-         var url=document.getElementById('urlinput').value;
-         if (url.substring(0,7) != 'http://'){
-         	url='http://'.concat(url);
+         if ('urlinput'.substring(0,7) != "http://"){
+         	'urlinput'="http://"+'urlinput';
          }
-         document.getElementById('oFrame').src = url;
+         document.getElementById('oFrame').src = document.getElementById('urlinput').value;
        }
      
 	});
