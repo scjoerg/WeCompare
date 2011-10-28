@@ -6,10 +6,15 @@
 	<LINK href="wecomparestyle.css" rel="stylesheet" type="text/css">
  </head>
  <body>
-   <!-- Script stuff -->
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-   <script>
+    <!-- Script stuff -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script>
+    var counter = 1;
+    var limit = 10;
+
+
 	$(document).ready(function(){
+
 		$("#urlinput").keypress(function(event) {
 			if ( event.which == 13 ) {
 				event.preventDefault();
@@ -23,12 +28,8 @@
 				document.getElementById('oFrame').src = url;
 			}
 		});
-	});
-	
-	<!--
-		var counter = 1;
-		var limit = 10;
-		function addTag(divName){
+
+        $("#addtagbutton").click(function() {
 			if (counter == limit)  {
 				alert("You have reached the limit of adding " + counter + " tags");
 			}
@@ -51,17 +52,18 @@
 				
 				newdiv.appendChild(newspan2);
 				
-				document.getElementById(divName).appendChild(newdiv);
+				document.getElementById("tagslist").appendChild(newdiv);
 				counter++;
 			}
-		}
+		});
+
+	});
+	
+	<!--
+
 	-->
 	
 	<!--
-		function clickAddTag() {
-			addTag('tagslist');
-			alert('Überraschung!');
-		}
 	-->
 	
    </script>
@@ -72,19 +74,17 @@
 	<div style="background-color: black; width: 27%;height: 100%; right:0px; top:0px; position: absolute;" class="attributes">
 		<div style="padding-left: 2px; top: 30px; position: absolute; color: white;">
 			<div style="border: 1px; padding: 5px; margin: 0px auto;">
-				<form action>
 					<div>
-						<button id="addtagbutton" name="add_tag" value="Überraschung" onClick="clickAddTag()">
+						<button id="addtagbutton" name="add_tag">
 							add tag
 						</button>
 					</div>
-				</form>
-				<form id="tagslist" action>
+				<div id="tagslist">
 					<div class="row">
 						<span class="label">
 							Title: 
 						</span>
-						<span class="formw">
+						<span class="form">
 							<textarea cols="23" rows="2">University of Fribourg
 							</textarea>
 						</span>
@@ -100,7 +100,7 @@ Av. Europe 20
 							</textarea>
 						</span>
 					</div>
-				</form>
+				</div>
 			</div>
 		</div>
 	</div>
