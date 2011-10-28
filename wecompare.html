@@ -24,6 +24,30 @@
 			}
 		});
 	});
+	
+	<!--
+		var counter = 1;
+		var limit = 10;
+		function addTag(divName){
+			if (counter == limit)  {
+				alert("You have reached the limit of adding " + counter + " tags");
+			}
+			else {
+				var newdiv = document.createElement('div');
+				newdiv.innerHTML = "Tag " + (counter + 1) + " <br><input type='text' name='myNoName'>";
+				document.getElementById(divName).appendChild(newdiv);
+				counter++;
+			}
+		}
+	-->
+	
+	<!--
+		function clickAddTag() {
+			addTag('tagslist');
+			alert('Überraschung!');
+		}
+	-->
+	
    </script>
 	<div style="width: 73%; height: 100%; left:0px; top: 0px; position:absolute;" class="frame">
 	  <div id="oDiv" style="width: 100%; height: 26px; background-color: black; color: white;">  => Enter your Webadress here: <input id="urlinput" type="text" style="width: 50%" value="http://www.unifr.ch"/></div>
@@ -34,12 +58,12 @@
 			<div style="border: 1px; padding: 5px; margin: 0px auto;">
 				<form action>
 					<div>
-						<button name="add_tag" value="Überraschung" onclick="alert('Überraschung!');">
+						<button id="addtagbutton" name="add_tag" value="Überraschung" onClick="clickAddTag()">
 							add tag
 						</button>
 					</div>
 				</form>
-				<form action>
+				<form id="tagslist" action>
 					<div class="row">
 						<span class="label">
 							Title: 
