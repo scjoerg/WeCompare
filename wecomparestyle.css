@@ -1,16 +1,16 @@
 div.row {
   clear: both;
   padding-top: 10px;
-  }
+}
 
 div.row span.label {
   float: left;
-  width: 100px;
+  width: 70px;
   text-align: right;
-  }
+}
 
 div.row span.formw {
   float: right;
-  width: 335px;
+  width: 200px;
   text-align: left;
-  } 
+} 
