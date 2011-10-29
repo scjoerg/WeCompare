@@ -13,4 +13,7 @@ div.row span.formw {
   float: right;
   width: 200px;
   text-align: left;
-} 
+}
+
+body { background-color:#000000; font-weight:bold; }
+
