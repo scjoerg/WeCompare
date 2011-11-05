@@ -6,10 +6,23 @@
 <LINK href="wecomparestyle2.css" rel="stylesheet" type="text/css">
  </head>
  <body>
+ 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script>
+		$(document).ready(function(){
+			var randomnumber=Math.floor(Math.random()*9);
+			var url='images/start/startLine0'+randomnumber+'.gif';
+			document.getElementById('start').src = url;
+			randomnumber=Math.floor(Math.random()*3)+1;
+			url='images/wecompare/wecompareFont0'+randomnumber+'.gif';
+			document.getElementById('title').src = url;
+	});
+		
+   </script>
 
 <div style="valign:middle;"> 
- 	<center> <img src="images/wecompare/wecompareFont02.gif" width="600" style="margin-top: 50px;" /> <br />
- 	<a href="wecompare.html"><img src="images/start/startLine07.gif" border="0" alt="Start here" width="300" style="margin-top: 160px;"></a> 
+ 	<center> <img id="title" src="images/wecompare/wecompareFont02.gif" width="600" style="margin-top: 50px;" /> <br />
+ 	<a href="wecompare.html"><img id="start" src="images/start/startLine07.gif" border="0" alt="Start here" width="300" style="margin-top: 160px;"></a> 
  	</center>
  </div> 	
  </body>
