@@ -12,13 +12,8 @@
     var counter = 1;
     var limit = 10;
 
-
-	$(document).ready(function(){
-
-		$("#urlinput").keypress(function(event) {
-			if ( event.which == 13 ) {
-				event.preventDefault();
-				var url=document.getElementById('urlinput').value;
+	function loadnewsite() {
+			var url=document.getElementById('urlinput').value;
 				if (url.substring(0,7) != 'http://'){
 					if(url.substring(0,4) != 'www.') {
 						url='www.'.concat(url);         		
@@ -26,7 +21,21 @@
 					url='http://'.concat(url);
 				}
 				document.getElementById('oFrame').src = url;
-			}
+
+	}
+
+	$(document).ready(function(){
+		var newurl = document.location.search.substring(3);
+		if (newurl) {	
+			document.getElementById('urlinput').value = newurl;		
+			loadnewsite();
+		}
+
+		$("#urlinput").keypress(function(event) {
+			if ( event.which == 13 ) {
+				event.preventDefault();
+				loadnewsite();
+				}
 		});
 
         $("#addtagbutton").click(function() {
