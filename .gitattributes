@@ -1,2 +1,4 @@
-*.html ident
+*.html ident 
+*.html export-subst
 *.fodt ident
+*.fodt export-subst
