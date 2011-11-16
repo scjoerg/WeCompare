@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:creation-date>2011-11-16T13:42:26</meta:creation-date><dc:date>2011-11-16T14:29:07</dc:date><meta:editing-duration>PT31M24S</meta:editing-duration><meta:editing-cycles>5</meta:editing-cycles><meta:generator>LibreOffice/3.4$Unix LibreOffice_project/340m1$Build-203</meta:generator><dc:title>Progress report</dc:title><meta:document-statistic meta:table-count="0" meta:image-count="3" meta:object-count="0" meta:page-count="3" meta:paragraph-count="33" meta:word-count="271" meta:character-count="1707" meta:non-whitespace-character-count="1468"/><meta:user-defined meta:name="Author">Jörg, Mariusz, Michael</meta:user-defined></office:meta>
+ <office:meta><meta:creation-date>2011-11-16T13:42:26</meta:creation-date><dc:date>2011-11-16T23:52:21</dc:date><meta:editing-duration>PT34M28S</meta:editing-duration><meta:editing-cycles>6</meta:editing-cycles><meta:generator>LibreOffice/3.4$Unix LibreOffice_project/340m1$Build-203</meta:generator><dc:title>Progress report</dc:title><meta:document-statistic meta:table-count="0" meta:image-count="3" meta:object-count="0" meta:page-count="3" meta:paragraph-count="38" meta:word-count="334" meta:character-count="2024" meta:non-whitespace-character-count="1744"/><meta:user-defined meta:name="Author">Jörg, Mariusz, Michael</meta:user-defined></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="int">33450</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="int">1824</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="int">0</config:config-item>
    <config:config-item config:name="ViewAreaWidth" config:type="int">31524</config:config-item>
    <config:config-item config:name="ViewAreaHeight" config:type="int">16233</config:config-item>
@@ -13,12 +13,12 @@
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="int">8273</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="int">35883</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="int">7262</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="int">49675</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="int">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="int">33450</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="int">1824</config:config-item>
      <config:config-item config:name="VisibleRight" config:type="int">31522</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="int">49682</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="int">18055</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
@@ -104,7 +104,6 @@
  </office:scripts>
  <office:font-face-decls>
   <style:font-face style:name="OpenSymbol" svg:font-family="OpenSymbol"/>
-  <style:font-face style:name="Helvetica" svg:font-family="Helvetica" style:font-family-generic="swiss"/>
   <style:font-face style:name="Palatino1" svg:font-family="Palatino" style:font-adornments="Bold" style:font-family-generic="roman" style:font-pitch="variable"/>
   <style:font-face style:name="Palatino2" svg:font-family="Palatino" style:font-adornments="Bold Italic" style:font-family-generic="roman" style:font-pitch="variable"/>
   <style:font-face style:name="Palatino" svg:font-family="Palatino" style:font-adornments="Regular" style:font-family-generic="roman" style:font-pitch="variable"/>
@@ -265,6 +264,10 @@
   <style:style style:name="P4" style:family="paragraph" style:parent-style-name="Footer">
    <style:paragraph-properties fo:padding="0cm" fo:border-left="none" fo:border-right="none" fo:border-top="2.01pt solid #000000" fo:border-bottom="none" style:shadow="none"/>
   </style:style>
+  <style:style style:name="P5" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L1"/>
+  <style:style style:name="P6" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L2"/>
+  <style:style style:name="P7" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L3"/>
+  <style:style style:name="P8" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L4"/>
   <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
    <style:graphic-properties style:horizontal-pos="right" style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
   </style:style>
@@ -274,6 +277,224 @@
   <style:style style:name="fr3" style:family="graphic" style:parent-style-name="Graphics">
    <style:graphic-properties style:vertical-pos="top" style:vertical-rel="paragraph" style:mirror="none" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
   </style:style>
+  <text:list-style style:name="L1">
+   <text:list-level-style-bullet text:level="1" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.27cm" fo:text-indent="-0.635cm" fo:margin-left="1.27cm"/>
+    </style:list-level-properties>
+    <style:text-properties fo:font-family="StarSymbol" style:font-charset="x-symbol"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="2" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.905cm" fo:text-indent="-0.635cm" fo:margin-left="1.905cm"/>
+    </style:list-level-properties>
+    <style:text-properties fo:font-family="StarSymbol" style:font-charset="x-symbol"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="3" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.54cm" fo:text-indent="-0.635cm" fo:margin-left="2.54cm"/>
+    </style:list-level-properties>
+    <style:text-properties fo:font-family="StarSymbol" style:font-charset="x-symbol"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="4" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.175cm" fo:text-indent="-0.635cm" fo:margin-left="3.175cm"/>
+    </style:list-level-properties>
+    <style:text-properties fo:font-family="StarSymbol" style:font-charset="x-symbol"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="5" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.81cm" fo:text-indent="-0.635cm" fo:margin-left="3.81cm"/>
+    </style:list-level-properties>
+    <style:text-properties fo:font-family="StarSymbol" style:font-charset="x-symbol"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="6" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.445cm" fo:text-indent="-0.635cm" fo:margin-left="4.445cm"/>
+    </style:list-level-properties>
+    <style:text-properties fo:font-family="StarSymbol" style:font-charset="x-symbol"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="7" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.08cm" fo:text-indent="-0.635cm" fo:margin-left="5.08cm"/>
+    </style:list-level-properties>
+    <style:text-properties fo:font-family="StarSymbol" style:font-charset="x-symbol"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="8" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.715cm" fo:text-indent="-0.635cm" fo:margin-left="5.715cm"/>
+    </style:list-level-properties>
+    <style:text-properties fo:font-family="StarSymbol" style:font-charset="x-symbol"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="9" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.35cm" fo:text-indent="-0.635cm" fo:margin-left="6.35cm"/>
+    </style:list-level-properties>
+    <style:text-properties fo:font-family="StarSymbol" style:font-charset="x-symbol"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="10" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm" fo:text-indent="-0.635cm" fo:margin-left="6.985cm"/>
+    </style:list-level-properties>
+    <style:text-properties fo:font-family="StarSymbol" style:font-charset="x-symbol"/>
+   </text:list-level-style-bullet>
+  </text:list-style>
+  <text:list-style style:name="L2">
+   <text:list-level-style-bullet text:level="1" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.27cm" fo:text-indent="-0.635cm" fo:margin-left="1.27cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="2" text:style-name="Bullet_20_Symbols" text:bullet-char="◦">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.905cm" fo:text-indent="-0.635cm" fo:margin-left="1.905cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="3" text:style-name="Bullet_20_Symbols" text:bullet-char="▪">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.54cm" fo:text-indent="-0.635cm" fo:margin-left="2.54cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="4" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.175cm" fo:text-indent="-0.635cm" fo:margin-left="3.175cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="5" text:style-name="Bullet_20_Symbols" text:bullet-char="◦">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.81cm" fo:text-indent="-0.635cm" fo:margin-left="3.81cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="6" text:style-name="Bullet_20_Symbols" text:bullet-char="▪">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.445cm" fo:text-indent="-0.635cm" fo:margin-left="4.445cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="7" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.08cm" fo:text-indent="-0.635cm" fo:margin-left="5.08cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="8" text:style-name="Bullet_20_Symbols" text:bullet-char="◦">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.715cm" fo:text-indent="-0.635cm" fo:margin-left="5.715cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="9" text:style-name="Bullet_20_Symbols" text:bullet-char="▪">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.35cm" fo:text-indent="-0.635cm" fo:margin-left="6.35cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="10" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm" fo:text-indent="-0.635cm" fo:margin-left="6.985cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+  </text:list-style>
+  <text:list-style style:name="L3">
+   <text:list-level-style-bullet text:level="1" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.27cm" fo:text-indent="-0.635cm" fo:margin-left="1.27cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="2" text:style-name="Bullet_20_Symbols" text:bullet-char="◦">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.905cm" fo:text-indent="-0.635cm" fo:margin-left="1.905cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="3" text:style-name="Bullet_20_Symbols" text:bullet-char="▪">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.54cm" fo:text-indent="-0.635cm" fo:margin-left="2.54cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="4" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.175cm" fo:text-indent="-0.635cm" fo:margin-left="3.175cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="5" text:style-name="Bullet_20_Symbols" text:bullet-char="◦">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.81cm" fo:text-indent="-0.635cm" fo:margin-left="3.81cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="6" text:style-name="Bullet_20_Symbols" text:bullet-char="▪">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.445cm" fo:text-indent="-0.635cm" fo:margin-left="4.445cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="7" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.08cm" fo:text-indent="-0.635cm" fo:margin-left="5.08cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="8" text:style-name="Bullet_20_Symbols" text:bullet-char="◦">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.715cm" fo:text-indent="-0.635cm" fo:margin-left="5.715cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="9" text:style-name="Bullet_20_Symbols" text:bullet-char="▪">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.35cm" fo:text-indent="-0.635cm" fo:margin-left="6.35cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="10" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm" fo:text-indent="-0.635cm" fo:margin-left="6.985cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+  </text:list-style>
+  <text:list-style style:name="L4">
+   <text:list-level-style-bullet text:level="1" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.27cm" fo:text-indent="-0.635cm" fo:margin-left="1.27cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="2" text:style-name="Bullet_20_Symbols" text:bullet-char="◦">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.905cm" fo:text-indent="-0.635cm" fo:margin-left="1.905cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="3" text:style-name="Bullet_20_Symbols" text:bullet-char="▪">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.54cm" fo:text-indent="-0.635cm" fo:margin-left="2.54cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="4" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.175cm" fo:text-indent="-0.635cm" fo:margin-left="3.175cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="5" text:style-name="Bullet_20_Symbols" text:bullet-char="◦">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.81cm" fo:text-indent="-0.635cm" fo:margin-left="3.81cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="6" text:style-name="Bullet_20_Symbols" text:bullet-char="▪">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.445cm" fo:text-indent="-0.635cm" fo:margin-left="4.445cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="7" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.08cm" fo:text-indent="-0.635cm" fo:margin-left="5.08cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="8" text:style-name="Bullet_20_Symbols" text:bullet-char="◦">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.715cm" fo:text-indent="-0.635cm" fo:margin-left="5.715cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="9" text:style-name="Bullet_20_Symbols" text:bullet-char="▪">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.35cm" fo:text-indent="-0.635cm" fo:margin-left="6.35cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="10" text:style-name="Bullet_20_Symbols" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm" fo:text-indent="-0.635cm" fo:margin-left="6.985cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+  </text:list-style>
   <style:page-layout style:name="pm1">
    <style:page-layout-properties fo:page-width="21.001cm" fo:page-height="29.7cm" style:num-format="1" style:print-orientation="portrait" fo:margin-top="2cm" fo:margin-bottom="2cm" fo:margin-left="2cm" fo:margin-right="2cm" style:writing-mode="lr-tb" style:layout-grid-color="#c0c0c0" style:layout-grid-lines="44" style:layout-grid-base-height="0.55cm" style:layout-grid-ruby-height="0cm" style:layout-grid-mode="none" style:layout-grid-ruby-below="false" style:layout-grid-print="true" style:layout-grid-display="true" style:layout-grid-base-width="0.37cm" style:layout-grid-snap-to="true" style:layout-grid-snap-to-characters="true" style:footnote-max-height="0cm">
     <style:footnote-sep style:width="0.018cm" style:distance-before-sep="0.101cm" style:distance-after-sep="0.101cm" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
@@ -2709,7 +2930,7 @@
     <text:p text:style-name="P1"/>
    </style:header>
    <style:footer>
-    <text:p text:style-name="P2"><text:user-defined style:data-style-name="N0" text:name="Author">Jörg, Mariusz, Michael</text:user-defined><text:tab/><text:page-number text:select-page="current">3</text:page-number> | <text:page-count>3</text:page-count><text:tab/><text:date style:data-style-name="N106" text:date-value="2011-11-16T13:47:46" text:fixed="true">November 2011</text:date></text:p>
+    <text:p text:style-name="P2"><text:user-defined style:data-style-name="N0" text:name="Author">Jörg, Mariusz, Michael</text:user-defined><text:tab/><text:page-number text:select-page="current">1</text:page-number> | <text:page-count>3</text:page-count><text:tab/><text:date style:data-style-name="N106" text:date-value="2011-11-16T13:47:46" text:fixed="true">November 2011</text:date></text:p>
    </style:footer>
   </style:master-page>
  </office:master-styles>
@@ -15398,36 +15619,83 @@
     </draw:frame></text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:soft-page-break/>Actual status</text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3">Michael Luggen</text:h>
-   <text:p text:style-name="Text_20_body">- basic skeleton of the page</text:p>
-   <text:p text:style-name="Text_20_body">- slightly improved background</text:p>
-   <text:p text:style-name="Text_20_body">- edit field on startpage</text:p>
-   <text:p text:style-name="Text_20_body"/>
+   <text:list xml:id="list222332889" text:style-name="L2">
+    <text:list-item>
+     <text:p text:style-name="P6">basic skeleton of the page</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="P6">slightly improved background</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="P6">edit field on startpage</text:p>
+    </text:list-item>
+   </text:list>
    <text:h text:style-name="Heading_20_3" text:outline-level="3">Jörg Schenker</text:h>
-   <text:p text:style-name="Text_20_body">- background</text:p>
-   <text:p text:style-name="Text_20_body">- created and designed start page (index.html)</text:p>
-   <text:p text:style-name="Text_20_body">- images, drawings, done on paper, edited and prepared for webpage. ( 27 different start pages right now, </text:p>
-   <text:p text:style-name="Text_20_body">- design wecompare.html</text:p>
-   <text:p text:style-name="Text_20_body">- added background functionality like: new usable also with www.example.com or example.com instead of only eample.com</text:p>
-   <text:p text:style-name="Text_20_body">- created git repository, invited team</text:p>
-   <text:p text:style-name="Text_20_body">- wecompare.html: added feature &quot;add new tag&quot;, new edit fields, button to add new tag, background of page, adapted background so it doesn&apos;t end on bottom of page</text:p>
-   <text:p text:style-name="Text_20_body">- installed it on server including a hourly auto-git-pull</text:p>
-   <text:p text:style-name="Text_20_body">- installed redshop database on server</text:p>
+   <text:list xml:id="list235409576" text:style-name="L1">
+    <text:list-item>
+     <text:p text:style-name="P5">background</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="P5">created and designed start page (index.html)</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="P5">images, drawings, done on paper, edited and prepared for webpage. ( 27 different start pages right now, </text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="P5">design wecompare.html</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="P5">added background functionality like: new usable also with www.example.com or example.com instead of only eample.com</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="P5">created git repository, invited team</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="P5">wecompare.html: added feature &quot;add new tag&quot;, new edit fields, button to add new tag, background of page, adapted background so it doesn&apos;t end on bottom of page</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="P5">installed it on server including a hourly auto-git-pull</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="P5">installed redshop database on server</text:p>
+    </text:list-item>
+   </text:list>
    <text:h text:style-name="Heading_20_3" text:outline-level="3">Marius Wisniewski</text:h>
-   <text:p text:style-name="Text_20_body">- functionality for changing tag subjects</text:p>
+   <text:list xml:id="list1624868821" text:style-name="L3">
+    <text:list-item>
+     <text:p text:style-name="P7">functionality for changing tag subjects</text:p>
+    </text:list-item>
+   </text:list>
    <text:p text:style-name="Text_20_body"/>
-   <text:h text:style-name="Heading_20_2" text:outline-level="2"/>
-   <text:h text:style-name="Heading_20_2" text:outline-level="2"/>
    <text:h text:style-name="Heading_20_2" text:outline-level="2">Remaining Tasks / Distribution of work</text:h>
-   <text:p text:style-name="Text_20_body">&lt;What is remaining.&gt; &lt;Up to Mariusz!&gt;</text:p>
+   <text:list xml:id="list1081310426" text:style-name="L4">
+    <text:list-item>
+     <text:p text:style-name="P8">Set up the RDF Database to store the triples containing the information and make tests.</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="P8">Improve the interface. Add possibility for the user to change tag subject and to choose from a list of already existing tag subjects. </text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="P8">Turn the information into RDF triples. Improve the logical part of the interface.</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="P8">Set the connection with the database. Store information from the system on the database.</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="P8">Create comparing interface containing all the information for the user.</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="P8">Optional features</text:p>
+    </text:list-item>
+   </text:list>
    <text:p text:style-name="Text_20_body"/>
-   <text:h text:style-name="Heading_20_2" text:outline-level="2">Distribution of work</text:h>
-   <text:p text:style-name="Text_20_body">&lt;Tasks of each group member.&gt; &lt;Up to Mariusz!&gt;</text:p>
-   <text:p text:style-name="Text_20_body">My proposition is, to divide by DatabaseInterface, GUI-Interface-Design, GUI-Interface-<text:soft-page-break/>Logic</text:p>
+   <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:soft-page-break/>Distribution of work</text:h>
+   <text:p text:style-name="Text_20_body">Jörg:<text:tab/><text:tab/>GUI Interface Design.</text:p>
+   <text:p text:style-name="Text_20_body">Mariusz:<text:tab/>GUI Interface Logic.</text:p>
+   <text:p text:style-name="Text_20_body">Michael:<text:tab/>Database set up and interface.</text:p>
    <text:p text:style-name="Text_20_body"/>
    <text:h text:style-name="Heading_20_2" text:outline-level="2">Webhosting</text:h>
-   <text:p text:style-name="Text_20_body">&lt;Do you need us to provide web hosting? If YES, what are your hardware and software requirements?&gt;</text:p>
-   <text:p text:style-name="Text_20_body"/>
-   <text:p text:style-name="Text_20_body">&lt;Please Jörg.. just say how it is hosted. (no details needed)&gt;</text:p>
+   <text:p text:style-name="Text_20_body">As we only need the Triplestore which is already set up, so far no hosting is needed.</text:p>
   </office:text>
  </office:body>
 </office:document>
