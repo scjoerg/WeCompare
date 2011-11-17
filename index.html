@@ -28,7 +28,12 @@
 		});
 
 		function start() {
-			document.location.href = "wecompare.html?s="+$('#address').val();
+			if ($('#address').val()=='http://') {
+				document.location.href = "wecompare.html?s="+'http://www.unifr.ch';
+			}
+			else {
+				document.location.href = "wecompare.html?s="+$('#address').val();
+			}
 		}
 		
    </script>
