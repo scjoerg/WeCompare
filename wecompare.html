@@ -25,6 +25,10 @@
 
 	}
 
+	function AddTitleToSelectList(number) {
+		alert("psst"+number);
+	}
+
 	$(document).ready(function(){
 		var newurl = document.location.search.substring(3);
 		if (newurl) {	
@@ -39,8 +43,8 @@
 				}
 		});
 
-        $("#addtagbutton").click(function() {
-			if (counter == limit)  {
+	$("#addtagbutton").click(function() {
+			if (counter > limit)  {
 				alert("You have reached the limit of adding " + counter + " tags");
 			}
 			else {
@@ -49,20 +53,48 @@
 				
 				var newspan = document.createElement('span');
 				newspan.className="label";
-				newspan.innerText="I am you new tag:";
+				//newspan.innerText="I am you new tag:";
 				newdiv.appendChild(newspan);
-				
+		
+				var selectList = document.createElement('select');
+				selectList.setAttribute('name', 'selectList' + counter);
+   				//selectList.setAttribute('id', 'selectList' + counter);
+   				selectList.style.width = "180px";
+				//var titlesTag = GetTitlesTags();
+				var titlesTag = ["Title", "Address", "Content"];				
+				for (var i=0; i<titlesTag.length; i++) {
+					var option = document.createElement('option');
+					option.value = titlesTag[i];
+					option.text = titlesTag[i];
+					selectList.appendChild(option);
+				}
+				newdiv.appendChild(selectList);
+
+				var newTitleButton= document.createElement('input');
+				var buttonNumber = counter;
+				newTitleButton.setAttribute('type','button');
+				newTitleButton.setAttribute('name','titleButton' + counter);
+				newTitleButton.setAttribute('value','New Title');
+				newTitleButton.setAttribute('onClick', "AddTitleToSelectList('"+buttonNumber+"')");
+				newdiv.appendChild(newTitleButton);
+
+				var newdiv2 = document.createElement('div');
+				newdiv2.className="row";
+		
 				var newspan2 = document.createElement('span');
 				newspan2.className='formw';
 				
 				var newtextarea = document.createElement('textarea');
-				newtextarea.cols=23;
-				newtextarea.rows=4;
+				newtextarea.setAttribute("name",'textarea' + counter);
+				newtextarea.setAttribute("cols","30");
+				newtextarea.setAttribute("rows","4");
+				newtextarea.value = 'textarea' + counter;
 				newspan2.appendChild(newtextarea);
 				
-				newdiv.appendChild(newspan2);
+				newdiv2.appendChild(newspan2);
 				
 				document.getElementById("tagslist").appendChild(newdiv);
+				document.getElementById("tagslist").appendChild(newdiv2);
 				counter++;
 			}
 		});

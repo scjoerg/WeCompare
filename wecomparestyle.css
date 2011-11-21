@@ -10,7 +10,7 @@ div.row span.label {
 }
 
 div.row span.formw {
-  float: right;
+  float: left;
   width: 200px;
   text-align: left;
 }
