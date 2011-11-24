@@ -15,5 +15,16 @@ div.row span.formw {
   text-align: left;
 }
 
-body { background: url("images/index/drawing.png"); font-weight:bold; }
+textarea.newTitleTextArea {
+  position: absolute;
+  width: 150px;
+  height: 50px;
+  border: 3px solid #cccccc;
+  padding: 5px;
+  font-family: Tahoma, sans-serif;
+  background-image: url(images/new_title.png);
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
 
+body { background: url("images/index/drawing.png"); font-weight:bold; }

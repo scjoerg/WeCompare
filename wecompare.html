@@ -12,6 +12,7 @@
     <script>
     var counter = 1;
     var limit = 10;
+    var maxTitleLength = 30;
 
 	function loadnewsite() {
 			var url=document.getElementById('urlinput').value;
@@ -26,7 +27,38 @@
 	}
 
 	function AddTitleToSelectList(number) {
-		alert("psst"+number);
+		if(document.getElementById("newTitleTextArea"+number) != null) document.getElementById("newTitleTextArea"+number).remove();
+		
+		var newTitleTextArea = document.createElement('textarea');
+		newTitleTextArea.className='newTitleTextArea';
+		newTitleTextArea.setAttribute("name",'newTitleTextArea'+number);
+		newTitleTextArea.setAttribute("id",'newTitleTextArea'+number);
+		
+		var button = document.getElementById("titleButton"+number);
+		//newTitleTextArea.style.left = button.offsetLeft+"px";
+		newTitleTextArea.style.top = button.offsetTop+"px";
+		document.getElementById("tagslist").appendChild(newTitleTextArea);
+		
+		newTitleTextArea.focus();
+
+		newTitleTextArea.onkeypress=function(e){
+			if(e.keyCode==13) {
+				e.preventDefault();
+				if(this.value.length > maxTitleLength) {
+					alert("The new title is too long! Do not exceed " + maxTitleLength + " characters please!");
+				}
+				else {
+					if(this.value.length > 0) {
+						var theSelectList = document.getElementById("selectList"+number);
+						var myNewOption = new Option(this.value, this.value);
+						var optsLen = theSelectList.options.length;
+    						theSelectList.options[optsLen] = myNewOption;
+						theSelectList.selectedIndex = optsLen;
+					}
+					$(this).remove();
+				}
+			}
+		};
 	}
 
 	$(document).ready(function(){
@@ -43,7 +75,7 @@
 				}
 		});
 
-	$("#addtagbutton").click(function() {
+		$("#addtagbutton").click(function() {
 			if (counter > limit)  {
 				alert("You have reached the limit of adding " + counter + " tags");
 			}
@@ -58,7 +90,7 @@
 		
 				var selectList = document.createElement('select');
 				selectList.setAttribute('name', 'selectList' + counter);
-   				//selectList.setAttribute('id', 'selectList' + counter);
+   				selectList.setAttribute('id', 'selectList' + counter);
    				selectList.style.width = "180px";
 				//var titlesTag = GetTitlesTags();
 				var titlesTag = ["Title", "Address", "Content"];				
@@ -74,6 +106,7 @@
 				var buttonNumber = counter;
 				newTitleButton.setAttribute('type','button');
 				newTitleButton.setAttribute('name','titleButton' + counter);
+				newTitleButton.setAttribute('id','titleButton' + counter);
 				newTitleButton.setAttribute('value','New Title');
 				newTitleButton.setAttribute('onClick', "AddTitleToSelectList('"+buttonNumber+"')");
 				newdiv.appendChild(newTitleButton);
@@ -86,6 +119,7 @@
 				
 				var newtextarea = document.createElement('textarea');
 				newtextarea.setAttribute("name",'textarea' + counter);
+				newtextarea.setAttribute("id",'textarea' + counter);
 				newtextarea.setAttribute("cols","30");
 				newtextarea.setAttribute("rows","4");
 				newtextarea.value = 'textarea' + counter;

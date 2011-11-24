@@ -1,0 +1,23 @@
+﻿- Set up the RDF Database to store the triples containing the information and make tests.
+
+- Improve the interface. Add possibility for the user to change tag subject and to choose from a list of already existing tag subjects. 
+
+- Turn the information into RDF triples. Improve the logical part of the interface.
+
+- Set the connection with the database. Store information from the system on the database.
+
+- Create comparing interface containing all the information for the user.
+
+- Optional features
+
+
+
+Distribution :
+
+Jörg : GUI Interface Design.
+Mariusz : GUI Interface Logic.
+Michael: Database set up and interface.
+
+This is a simple plan, but each of us will work on each of these parts to make the system work in the end.
+
+
