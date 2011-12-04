@@ -9,6 +9,8 @@
  <body>
     <!-- Script stuff -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="http://rdfquery.googlecode.com/files/jquery.rdfquery.core.min-1.0.js"></script>
+
     <script>
     var counter = 1;
     var limit = 10;
@@ -62,6 +64,29 @@
 	}
 
 	$(document).ready(function(){
+
+		var books = $.rdf.databank()
+		.prefix('foaf', 'http://xmlns.com/foaf/0.1/')
+		.prefix('dc', 'http://purl.org/dc/elements/1.1/')
+		.prefix('dct', 'http://purl.org/dc/terms/')
+		.prefix('xsd', 'http://www.w3.org/2001/XMLSchema#')
+		.add('<http://example.com/aReallybad> dc:title "A Really bad Book" .')
+		.add('<http://example.com/aReallybad> dc:creator _:creator .')
+		.add('_:creator a foaf:Person .')
+		.add('_:creator foaf:name "John Muster" .')
+		.add('<http://example.com/aReallybad> dct:issued "2012-01-12"^^xsd:date .');
+
+
+		$.ajax({
+			  type: 'POST',
+			  url: 'http://arkania.dyndns.org:9898/data/test.rdf',
+			  processData: false,
+			  contentType: 'application/rdf+xml',
+			  success: function(){ },
+			  data: books.dump({format:'application/rdf+xml', serialize: true}),
+		});	
+
+
 		var newurl = document.location.search.substring(3);
 		if (newurl) {	
 			document.getElementById('urlinput').value = newurl;		
@@ -154,28 +179,11 @@
 						<button id="addtagbutton" name="add_tag">
 							add tag
 						</button>
+						<button id="savebutton" name="save">
+							save
+						</button>
 					</div>
 				<div id="tagslist">
-					<div class="row">
-						<span class="label">
-							Title: 
-						</span>
-						<span class="formw">
-							<textarea cols="23" rows="2">University of Fribourg
-							</textarea>
-						</span>
-					</div>
-					<div class="row">
-						<span class="label">
-							Address:
-						</span>
-						<span class="formw">
-							<textarea cols="23" rows="4">University of Fribourg
-Av. Europe 20
-1700 Fribourg
-							</textarea>
-						</span>
-					</div>
 				</div>
 			</div>
 		</div>
