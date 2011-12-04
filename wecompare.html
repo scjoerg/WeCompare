@@ -86,7 +86,7 @@
 			  url: 'http://arkania.dyndns.org:9898/data/'+id+'.rdf',
 			  processData: false,
 			  contentType: 'application/rdf+xml',
-			  success: function(){alert('done'); },
+			  success: function(){alert('Data successfully saved.'); },
 			  data: rdf_data.dump({format:'application/rdf+xml', serialize: true}),
 		});	
     }
@@ -125,8 +125,6 @@
             .add('_:tag1 dc:title "unifr" .')
             .add('<http://wecompare.ch/'+session_id+'> wc:tag _:tag2 .')
             .add('_:tag2 dc:author "chef at unifr" .');
-
-            alert(document.getElementById('oFrame').src);
 
             save_rdf(website, session_id);
             
