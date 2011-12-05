@@ -83,7 +83,7 @@
         // push the ajax stuff
 		$.ajax({
 			  type: 'POST',
-			  url: 'http://arkania.dyndns.org:9898/data/'+id+'.rdf',
+			  url: 'http://arkania.dyndns.org/redstore/data/'+id+'.rdf',
 			  processData: false,
 			  contentType: 'application/rdf+xml',
 			  success: function(){alert('Data successfully saved.'); },
