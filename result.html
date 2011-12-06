@@ -26,13 +26,28 @@
 
 
 	function loadResults() {
-		$.getJSON('http://arkania.dyndns.org/redstore/query?query=PREFIX+wc%3A+<http%3A%2F%2Fwecompare.ch%2F0.1%2F>%0D%0ASELECT+%3Fsite+%3Fv+%3Fo++WHERE+{%0D%0A+{wc%3A'+sid+'+wc%3Awebsite+%3Fsite}%0D%0A+{wc%3A'+sid+'+wc%3Atag+%3Ftag}%0D%0A+{%3Ftag+%3Fv+%3Fo}%0D%0A}&lang=laqrs&format=json', function(data) {
+		$.getJSON('http://arkania.dyndns.org/redstore/query?query=PREFIX+wc%3A+<http%3A%2F%2Fwecompare.ch%2F0.1%2F>%0D%0ASELECT+%3Fsite+%3Fv+%3Fo+WHERE+{%0D%0A+{wc%3A'+sid+'+wc%3Awebsite+%3Fsite}%0D%0A+{wc%3A'+sid+'+wc%3Atag+%3Ftag}%0D%0A+{%3Ftag+wc%3Awebsite+%3Fsite}%0D%0A+{%3Ftag+%3Fv+%3Fo}%0D%0A+FILTER+(%3Fsite+!%3D+%3Fo)%0D%0A}&lang=laqrs&format=json', function(data) {
 			  data = data['results']
 			  data = data['bindings']
-
+			  var items = [];
+			  var currentSite = '';
 			  $.each(data, function(key, val) {
-			    alert(key);
+
+			     if (currentSite != val['site']['value']) {
+					currentSite = val['site']['value']; 
+			    		items.push('<li id="' + key + '"><big>'+  val['site']['value'] + '</big></li>');
+				};
+
+			     items.push('<li id="' + key + '">'+ val['v']['value'].match(/[^/]+$/) + ": " + val['o']['value'] +'</li>');
+
+
 			  });
+
+			 $('<ul/>', {
+			    'class': 'my-new-list',
+			    html: items.join('')
+			  }).appendTo('#results');
+
 			});
 
 	}
