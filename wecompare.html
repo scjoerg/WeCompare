@@ -19,6 +19,7 @@
     var limit = 10;
     var titlesTag = [];
     var maxTitleLength = 30;
+    var sid = null
 
     Math.uuid = function() {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -46,13 +47,12 @@
                 
                 var newspan = document.createElement('span');
                 newspan.className="label";
-                //newspan.innerText="I am you new tag:";
                 newdiv.appendChild(newspan);
         
                 var selectList = document.createElement('select');
                 selectList.setAttribute('name', 'selectList' + counter);
-                   selectList.setAttribute('id', 'selectList' + counter);
-                   selectList.style.width = "180px";
+                selectList.setAttribute('id', 'selectList' + counter);
+                selectList.style.width = "180px";
                 for (var i=0; i<titlesTag.length; i++) {
                     var option = document.createElement('option');
                     option.value = titlesTag[i];
@@ -128,6 +128,25 @@
         };
     }
 
+	function saveAttributes() {
+		 // just some test rdf stuff
+            var website = $.rdf.databank()
+            .prefix('dc', 'http://purl.org/dc/elements/1.1/')
+            .prefix('dct', 'http://purl.org/dc/terms/')
+            .prefix('xsd', 'http://www.w3.org/2001/XMLSchema#')
+            .prefix('wc', 'http://wecompare.ch/0.1/')
+            .prefix('sma', 'http://schema.org/0.9/')
+            .add('<http://wecompare.ch/'+sid+'> wc:website "'+document.getElementById('oFrame').src+'" .');
+
+		for (var i = 1; i < counter; ++i) {
+            		website.add('<http://wecompare.ch/'+sid+'> wc:tag _:tag'+i+' .');
+            		website.add('_:tag'+i+' sma:'+$('#selectList'+i).val()+' "'+$('#textarea'+i).val()+'" .');
+		}
+		
+		return website;
+	}
+
+	
 	function loadAttributes() {
 		$.getJSON('schema.json', function(data) {
 			  data = data['properties']
@@ -177,11 +196,11 @@
 	}
 
 
-    function save_rdf(rdf_data,id) {
+    function save_rdf(rdf_data) {
         // push the ajax stuff
         $.ajax({
               type: 'POST',
-              url: 'http://arkania.dyndns.org/redstore/data/'+id+'.rdf',
+              url: 'http://arkania.dyndns.org/redstore/data/'+sid+'.rdf',
               processData: false,
               contentType: 'application/rdf+xml',
               success: function(){alert('Data successfully saved.'); },
@@ -194,12 +213,12 @@
 
 	
         // if there is no session ID (neither in cookie or as param), generate one
-	var sid = getCookie('wc_sid'); 
+	sid = getCookie('wc_sid'); 
         if(sid == null) {
 	    if($.QueryString['sid']) {
-		var sid = $.QueryString['sid'];
+		sid = $.QueryString['sid'];
 	    } else { 
-		var sid = Math.uuid(); 
+		sid = Math.uuid(); 
 	    }
 	    setCookie('wc_sid', sid, 10);
         }
@@ -220,20 +239,8 @@
         });
         
         $("#savebutton").click(function() {
-            // just some test rdf stuff
-            var website = $.rdf.databank()
-            .prefix('dc', 'http://purl.org/dc/elements/1.1/')
-            .prefix('dct', 'http://purl.org/dc/terms/')
-            .prefix('xsd', 'http://www.w3.org/2001/XMLSchema#')
-            .prefix('wc', 'http://wecompare.ch/0.1/')
-            .add('<http://wecompare.ch/'+session_id+'> wc:website "'+document.getElementById('oFrame').src+'" .')
-            .add('<http://wecompare.ch/'+session_id+'> wc:tag _:tag1 .')
-            .add('_:tag1 dc:title "unifr" .')
-            .add('<http://wecompare.ch/'+session_id+'> wc:tag _:tag2 .')
-            .add('_:tag2 dc:author "chef at unifr" .');
-
-            save_rdf(website, session_id);
-            
+            website = saveAttributes();
+            save_rdf(website);
             });
 
         $("#addtagbutton").click(function() {
