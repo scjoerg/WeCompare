@@ -4,7 +4,7 @@
  <head>
    <meta charset="utf-8">
    <title>weCompare</title>
-	<LINK href="wecomparestyle.css" rel="stylesheet" type="text/css">
+    <LINK href="wecomparestyle.css" rel="stylesheet" type="text/css">
  </head>
  <body>
     <!-- Script stuff -->
@@ -13,6 +13,8 @@
 
     <!-- Our code -->
     <script>
+
+    // global variables
     var counter = 1;
     var limit = 10;
     var maxTitleLength = 30;
@@ -25,94 +27,188 @@
     };
 
 
-	function loadnewsite() {
-			var url=document.getElementById('urlinput').value;
-				if (url.substring(0,7) != 'http://'){
-					if(url.substring(0,4) != 'www.') {
-						url='www.'.concat(url);         		
-					}
-					url='http://'.concat(url);
-				}
-				document.getElementById('oFrame').src = url;
+    function loadnewsite() {
+            var url=document.getElementById('urlinput').value;
+                if (url.substring(0,7) != 'http://'){
+                    if(url.substring(0,4) != 'www.') {
+                        url='www.'.concat(url);                 
+                    }
+                    url='http://'.concat(url);
+                }
+                document.getElementById('oFrame').src = url;
 
+    }
+
+    function AddNewTag() {
+                var newdiv = document.createElement('div');
+                newdiv.className="row";
+                
+                var newspan = document.createElement('span');
+                newspan.className="label";
+                //newspan.innerText="I am you new tag:";
+                newdiv.appendChild(newspan);
+        
+                var selectList = document.createElement('select');
+                selectList.setAttribute('name', 'selectList' + counter);
+                   selectList.setAttribute('id', 'selectList' + counter);
+                   selectList.style.width = "180px";
+                //var titlesTag = GetTitlesTags();
+                var titlesTag = ["Title", "Address", "Content"];                
+                for (var i=0; i<titlesTag.length; i++) {
+                    var option = document.createElement('option');
+                    option.value = titlesTag[i];
+                    option.text = titlesTag[i];
+                    selectList.appendChild(option);
+                }
+                newdiv.appendChild(selectList);
+
+                var newTitleButton= document.createElement('input');
+                var buttonNumber = counter;
+                newTitleButton.setAttribute('type','button');
+                newTitleButton.setAttribute('name','titleButton' + counter);
+                newTitleButton.setAttribute('id','titleButton' + counter);
+                newTitleButton.setAttribute('value','New Title');
+                newTitleButton.setAttribute('onClick', "AddTitleToSelectList('"+buttonNumber+"')");
+                newdiv.appendChild(newTitleButton);
+
+                var newdiv2 = document.createElement('div');
+                newdiv2.className="row";
+        
+                var newspan2 = document.createElement('span');
+                newspan2.className='formw';
+                
+                var newtextarea = document.createElement('textarea');
+                newtextarea.setAttribute("name",'textarea' + counter);
+                newtextarea.setAttribute("id",'textarea' + counter);
+                newtextarea.setAttribute("cols","30");
+                newtextarea.setAttribute("rows","4");
+                newtextarea.value = 'textarea' + counter;
+                newspan2.appendChild(newtextarea);
+                
+                newdiv2.appendChild(newspan2);
+                
+                document.getElementById("tagslist").appendChild(newdiv);
+                document.getElementById("tagslist").appendChild(newdiv2);
+                counter++;
+    }
+
+    
+
+    function AddTitleToSelectList(number) {
+        if(document.getElementById("newTitleTextArea"+number) != null) document.getElementById("newTitleTextArea"+number).remove();
+        
+        var newTitleTextArea = document.createElement('textarea');
+        newTitleTextArea.className='newTitleTextArea';
+        newTitleTextArea.setAttribute("name",'newTitleTextArea'+number);
+        newTitleTextArea.setAttribute("id",'newTitleTextArea'+number);
+        
+        var button = document.getElementById("titleButton"+number);
+        //newTitleTextArea.style.left = button.offsetLeft+"px";
+        newTitleTextArea.style.top = button.offsetTop+"px";
+        document.getElementById("tagslist").appendChild(newTitleTextArea);
+        
+        newTitleTextArea.focus();
+
+        newTitleTextArea.onkeypress=function(e){
+            if(e.keyCode==13) {
+                e.preventDefault();
+                if(this.value.length > maxTitleLength) {
+                    alert("The new title is too long! Do not exceed " + maxTitleLength + " characters please!");
+                }
+                else {
+                    if(this.value.length > 0) {
+                        var theSelectList = document.getElementById("selectList"+number);
+                        var myNewOption = new Option(this.value, this.value);
+                        var optsLen = theSelectList.options.length;
+                            theSelectList.options[optsLen] = myNewOption;
+                        theSelectList.selectedIndex = optsLen;
+                    }
+                    $(this).remove();
+                }
+            }
+        };
+    }
+
+	//get params of document.location
+	(function($) {
+	    $.QueryString = (function(a) {
+		if (a == "") return {};
+		var b = {};
+		for (var i = 0; i < a.length; ++i)
+		{
+		    var p=a[i].split('=');
+		    if (p.length != 2) continue;
+		    b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+		}
+		return b;
+	    })(window.location.search.substr(1).split('&'))
+	})(jQuery);
+
+	//work with cookies
+	function setCookie(name,value,days) {
+	    if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	    }
+	    else var expires = "";
+	    document.cookie = name+"="+value+expires+"; path=/";
 	}
 
-	function AddTitleToSelectList(number) {
-		if(document.getElementById("newTitleTextArea"+number) != null) document.getElementById("newTitleTextArea"+number).remove();
-		
-		var newTitleTextArea = document.createElement('textarea');
-		newTitleTextArea.className='newTitleTextArea';
-		newTitleTextArea.setAttribute("name",'newTitleTextArea'+number);
-		newTitleTextArea.setAttribute("id",'newTitleTextArea'+number);
-		
-		var button = document.getElementById("titleButton"+number);
-		//newTitleTextArea.style.left = button.offsetLeft+"px";
-		newTitleTextArea.style.top = button.offsetTop+"px";
-		document.getElementById("tagslist").appendChild(newTitleTextArea);
-		
-		newTitleTextArea.focus();
-
-		newTitleTextArea.onkeypress=function(e){
-			if(e.keyCode==13) {
-				e.preventDefault();
-				if(this.value.length > maxTitleLength) {
-					alert("The new title is too long! Do not exceed " + maxTitleLength + " characters please!");
-				}
-				else {
-					if(this.value.length > 0) {
-						var theSelectList = document.getElementById("selectList"+number);
-						var myNewOption = new Option(this.value, this.value);
-						var optsLen = theSelectList.options.length;
-    						theSelectList.options[optsLen] = myNewOption;
-						theSelectList.selectedIndex = optsLen;
-					}
-					$(this).remove();
-				}
-			}
-		};
+	function getCookie(name) {
+	    var nameEQ = name + "=";
+	    var ca = document.cookie.split(';');
+	    for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	    }
+	    return null;
 	}
 
 
     function save_rdf(rdf_data,id) {
-
-        // if there is no session ID, generate one
-        if(id === undefined) {
-            var id = Math.uuid();
-        }
-
         // push the ajax stuff
-		$.ajax({
-			  type: 'POST',
-			  url: 'http://arkania.dyndns.org/redstore/data/'+id+'.rdf',
-			  processData: false,
-			  contentType: 'application/rdf+xml',
-			  success: function(){alert('Data successfully saved.'); },
-			  data: rdf_data.dump({format:'application/rdf+xml', serialize: true}),
-		});	
+        $.ajax({
+              type: 'POST',
+              url: 'http://arkania.dyndns.org/redstore/data/'+id+'.rdf',
+              processData: false,
+              contentType: 'application/rdf+xml',
+              success: function(){alert('Data successfully saved.'); },
+              data: rdf_data.dump({format:'application/rdf+xml', serialize: true}),
+        });    
     }
 
 //******************************* START
-	$(document).ready(function(){
+    $(document).ready(function(){
 
+	
+        // if there is no session ID (neither in cookie or as param), generate one
+	var sid = getCookie('wc_sid'); 
+        if(sid == null) {
+	    if($.QueryString['sid']) {
+		var sid = $.QueryString['sid'];
+	    } else { 
+		var sid = Math.uuid(); 
+	    }
+	    setCookie('wc_sid', sid, 10);
+        }
+	$("#debug").html(sid);
 
-        if(session_id === undefined) {
-            var session_id = Math.uuid();
+	// get first url if provided
+        if ($.QueryString["s"]) {    
+            document.getElementById('urlinput').value = $.QueryString["s"];
+            loadnewsite();
         }
 
-  
-		var newurl = document.location.search.substring(3);
-		if (newurl) {	
-			document.getElementById('urlinput').value = newurl;		
-			loadnewsite();
-		}
-
-		$("#urlinput").keypress(function(event) {
-			if ( event.which == 13 ) {
-				event.preventDefault();
-				loadnewsite();
-				}
-		});
-		
+	// browse to new adress
+        $("#urlinput").keypress(function(event) {
+            if ( event.which == 13 ) {
+                event.preventDefault();
+                loadnewsite();
+                }
+        });
+        
         $("#savebutton").click(function() {
             // just some test rdf stuff
             var website = $.rdf.databank()
@@ -130,93 +226,44 @@
             
             });
 
-		$("#addtagbutton").click(function() {
-			if (counter > limit)  {
-				alert("You have reached the limit of adding " + counter + " tags");
-			}
-			else {
-				var newdiv = document.createElement('div');
-				newdiv.className="row";
-				
-				var newspan = document.createElement('span');
-				newspan.className="label";
-				//newspan.innerText="I am you new tag:";
-				newdiv.appendChild(newspan);
-		
-				var selectList = document.createElement('select');
-				selectList.setAttribute('name', 'selectList' + counter);
-   				selectList.setAttribute('id', 'selectList' + counter);
-   				selectList.style.width = "180px";
-				//var titlesTag = GetTitlesTags();
-				var titlesTag = ["Title", "Address", "Content"];				
-				for (var i=0; i<titlesTag.length; i++) {
-					var option = document.createElement('option');
-					option.value = titlesTag[i];
-					option.text = titlesTag[i];
-					selectList.appendChild(option);
-				}
-				newdiv.appendChild(selectList);
+        $("#addtagbutton").click(function() {
+            if (counter > limit)  {
+                alert("You have reached the limit of adding " + counter + " tags");
+            }
+            else {
+		AddNewTag();
+            }
+        });
 
-				var newTitleButton= document.createElement('input');
-				var buttonNumber = counter;
-				newTitleButton.setAttribute('type','button');
-				newTitleButton.setAttribute('name','titleButton' + counter);
-				newTitleButton.setAttribute('id','titleButton' + counter);
-				newTitleButton.setAttribute('value','New Title');
-				newTitleButton.setAttribute('onClick', "AddTitleToSelectList('"+buttonNumber+"')");
-				newdiv.appendChild(newTitleButton);
-
-				var newdiv2 = document.createElement('div');
-				newdiv2.className="row";
-		
-				var newspan2 = document.createElement('span');
-				newspan2.className='formw';
-				
-				var newtextarea = document.createElement('textarea');
-				newtextarea.setAttribute("name",'textarea' + counter);
-				newtextarea.setAttribute("id",'textarea' + counter);
-				newtextarea.setAttribute("cols","30");
-				newtextarea.setAttribute("rows","4");
-				newtextarea.value = 'textarea' + counter;
-				newspan2.appendChild(newtextarea);
-				
-				newdiv2.appendChild(newspan2);
-				
-				document.getElementById("tagslist").appendChild(newdiv);
-				document.getElementById("tagslist").appendChild(newdiv2);
-				counter++;
-			}
-		});
-
-	});
-	
-	
-	<!--
-	-->
-	
+    });
+    
+    
+    <!--
+    -->
+    
    </script>
 
-	<div style="width: 73%; height: 100%; left:0px; top: 0px; position:absolute;" class="frame">
-	  <div id="oDiv" style="width: 100%; padding: 2px; "><span style="font-family: Helvetica, sans-serif;">Webaddress: </span><input id="urlinput" type="text" style="width: 50%" value="http://www.unifr.ch"/></div>
-	  <iframe style="width: 100%; height:94%" id="oFrame" class="objectFrame" name="objectFrame" src="http://www.unifr.ch"></iframe>
-	</div>
-	<div style=" width: 27%;height: 100%; right:0px; top:0px; position: absolute;" class="attributes">
-		<div style="padding-left: 2px; top: 30px; position: absolute; color: blue;">
-			<div style="border: 1px; padding: 5px; margin: 0px auto;">
-					<div>
-						<button id="addtagbutton" name="add_tag">
-							add tag
-						</button>
-						<button id="savebutton" name="save">
-							save
-						</button>
-					</div>
-				<div id="tagslist">
-				</div>
-			</div>
-		</div>
- 	<span style="font-size: 8pt; bottom: 0px; right: 2px; position: absolute;">$Id$</span>
-	</div>
+    <div style="width: 73%; height: 100%; left:0px; top: 0px; position:absolute;" class="frame">
+      <div id="oDiv" style="width: 100%; padding: 2px; "><span style="font-family: Helvetica, sans-serif;">Webaddress: </span><input id="urlinput" type="text" style="width: 50%" value="http://www.unifr.ch"/></div>
+      <iframe style="width: 100%; height:94%" id="oFrame" class="objectFrame" name="objectFrame" src="http://www.unifr.ch"></iframe>
+    </div>
+    <div style=" width: 27%;height: 100%; right:0px; top:0px; position: absolute;" class="attributes">
+        <div style="padding-left: 2px; top: 30px; position: absolute; color: blue;">
+            <div style="border: 1px; padding: 5px; margin: 0px auto;">
+                    <div>
+                        <button id="addtagbutton" name="add_tag">
+                            add tag
+                        </button>
+                        <button id="savebutton" name="save">
+                            save
+                        </button>
+                    </div>
+                <div id="tagslist">
+                </div>
+            </div>
+        </div>
+     <span style="font-size: 8pt; bottom: 0px; right: 2px; position: absolute;"><span id="debug"></span> $Id$</span>
+    </div>
 
  </body>
  </html>
