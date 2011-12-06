@@ -2,3 +2,28 @@
 http://arkania.dyndns.org/WeCompare/index.html
 
 
+**** Query and give all back
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wc: <http://wecompare.ch/0.1/>
+
+SELECT * WHERE {
+ {?session wc:website ?site}
+ {?session wc:tag ?tag}
+ {?tag ?v ?o}
+} LIMIT 10
+
+
+**** Query and give only ?site and ?tag back
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wc: <http://wecompare.ch/0.1/>
+
+SELECT ?site ?v ?o  WHERE {
+ {?session wc:website ?site}
+ {?session wc:tag ?tag}
+ {?tag ?v ?o}
+} LIMIT 10
