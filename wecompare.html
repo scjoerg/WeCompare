@@ -1,300 +1,243 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>weCompare</title>
+	<link href="wecomparestyle.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!-- Script stuff -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script src="http://rdfquery.googlecode.com/files/jquery.rdfquery.core.min-1.0.js"></script>
+<script src="common.js"></script>
 
- <html lang="en">
- <head>
-   <meta charset="utf-8">
-   <title>weCompare</title>
-    <LINK href="wecomparestyle.css" rel="stylesheet" type="text/css">
- </head>
- <body>
-    <!-- Script stuff -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-    <script src="http://rdfquery.googlecode.com/files/jquery.rdfquery.core.min-1.0.js"></script>
+<!-- Our code -->
+<script>
+   // global variables
+   var counter = 1;
+   var limit = 10;
+   var titlesTag = [];
+   var maxTitleLength = 30;
+   var sid = null;
 
-    <!-- Our code -->
-    <script>
+   function AddNewTag() {
+       var newdiv = document.createElement('div');
+       newdiv.className = "row";
 
-    // global variables
-    var counter = 1;
-    var limit = 10;
-    var titlesTag = [];
-    var maxTitleLength = 30;
-    var sid = null
+       var newspan = document.createElement('span');
+       newspan.className = "label";
+       newdiv.appendChild(newspan);
 
-    Math.uuid = function() {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-            var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
-            return v.toString(16);
-        });
-    };
+       var selectList = document.createElement('select');
+       selectList.setAttribute('name', 'selectList' + counter);
+       selectList.setAttribute('id', 'selectList' + counter);
+       selectList.style.width = "180px";
+       for (var i = 0; i < titlesTag.length; i++) {
+           var option = document.createElement('option');
+           option.value = titlesTag[i];
+           option.text = titlesTag[i];
+           selectList.appendChild(option);
+       }
+       newdiv.appendChild(selectList);
+
+       var newTitleButton = document.createElement('input');
+       newTitleButton.setAttribute('type', 'button');
+       newTitleButton.setAttribute('name', 'titleButton' + counter);
+       newTitleButton.setAttribute('id', 'titleButton' + counter);
+       newTitleButton.setAttribute('value', 'other tag name');
+       newTitleButton.setAttribute('onClick', "AddTitleToSelectList('" + counter + "')");
+       newdiv.appendChild(newTitleButton);
+
+       var newtextarea = document.createElement('textarea');
+       newtextarea.setAttribute("name", 'textarea' + counter);
+       newtextarea.setAttribute("id", 'textarea' + counter);
+       newtextarea.setAttribute("cols", "37");
+       newtextarea.setAttribute("rows", "4");
+       newdiv.appendChild(newtextarea);
+
+       document.getElementById("tagslist").appendChild(newdiv);
+       counter++;
+   }
 
 
-    function loadnewsite() {
-            var url=document.getElementById('urlinput').value;
-                if (url.substring(0,7) != 'http://'){
-                    if(url.substring(0,4) != 'www.') {
-                        url='www.'.concat(url);                 
-                    }
-                    url='http://'.concat(url);
-                }
-                document.getElementById('oFrame').src = url;
 
-    }
+   function AddTitleToSelectList(number) {
+       if (document.getElementById("newTitleTextArea" + number) != null) document.getElementById("newTitleTextArea" + number).remove();
 
-    function AddNewTag() {
-                var newdiv = document.createElement('div');
-                newdiv.className="row";
-                
-                var newspan = document.createElement('span');
-                newspan.className="label";
-                newdiv.appendChild(newspan);
-        
-                var selectList = document.createElement('select');
-                selectList.setAttribute('name', 'selectList' + counter);
-                selectList.setAttribute('id', 'selectList' + counter);
-                selectList.style.width = "180px";
-                for (var i=0; i<titlesTag.length; i++) {
-                    var option = document.createElement('option');
-                    option.value = titlesTag[i];
-                    option.text = titlesTag[i];
-                    selectList.appendChild(option);
-                }
-                newdiv.appendChild(selectList);
+       var newTitleTextArea = document.createElement('textarea');
+       newTitleTextArea.className = 'newTitleTextArea';
+       newTitleTextArea.setAttribute("name", 'newTitleTextArea' + number);
+       newTitleTextArea.setAttribute("id", 'newTitleTextArea' + number);
 
-                var newTitleButton= document.createElement('input');
-                var buttonNumber = counter;
-                newTitleButton.setAttribute('type','button');
-                newTitleButton.setAttribute('name','titleButton' + counter);
-                newTitleButton.setAttribute('id','titleButton' + counter);
-                newTitleButton.setAttribute('value','other tag name');
-                newTitleButton.setAttribute('onClick', "AddTitleToSelectList('"+buttonNumber+"')");
-                newdiv.appendChild(newTitleButton);
+       var button = document.getElementById("titleButton" + number);
+       newTitleTextArea.style.top = button.offsetTop + "px";
+       document.getElementById("tagslist").appendChild(newTitleTextArea);
 
-                var newdiv2 = document.createElement('div');
-                newdiv2.className="row";
-        
-                var newspan2 = document.createElement('span');
-                newspan2.className='formw';
-                
-                var newtextarea = document.createElement('textarea');
-                newtextarea.setAttribute("name",'textarea' + counter);
-                newtextarea.setAttribute("id",'textarea' + counter);
-                newtextarea.setAttribute("cols","30");
-                newtextarea.setAttribute("rows","4");
-                //newtextarea.value = 'textarea' + counter;
-                newspan2.appendChild(newtextarea);
-                
-                newdiv2.appendChild(newspan2);
-                
-                document.getElementById("tagslist").appendChild(newdiv);
-                document.getElementById("tagslist").appendChild(newdiv2);
-                counter++;
-    }
+       newTitleTextArea.focus();
 
+       newTitleTextArea.onkeypress = function (e) {
+           if (e.keyCode == 13) {
+               e.preventDefault();
+               if (this.value.length > maxTitleLength) {
+                   alert("The new title is too long! Do not exceed " + maxTitleLength + " characters please!");
+               } else {
+                   if (this.value.length > 0) {
+                       var theSelectList = document.getElementById("selectList" + number);
+                       var myNewOption = new Option(this.value, this.value);
+                       var optsLen = theSelectList.options.length;
+                       theSelectList.options[optsLen] = myNewOption;
+                       theSelectList.selectedIndex = optsLen;
+                   }
+                   $(this).remove();
+               }
+           }
+       };
+   }
+
+   function saveAttributes() {
+       // just some test rdf stuff
+       websiteurl = document.getElementById('oFrame').src;
+       var website = $.rdf.databank().prefix('dc', 'http://purl.org/dc/elements/1.1/').prefix('dct', 'http://purl.org/dc/terms/').prefix('xsd', 'http://www.w3.org/2001/XMLSchema#').prefix('wc', 'http://wecompare.ch/0.1/').prefix('sma', 'http://schema.org/0.9/').add('wc:' + sid + ' wc:website "' + websiteurl + '" .');
+
+       for (var i = 1; i < counter; ++i) {
+           if ( $('#textarea'+i).val() != '' ) {
+               website.add('wc:' + sid + ' wc:tag _:tag' + i + ' .');
+               website.add('_:tag' + i + ' wc:website "' + websiteurl + '" .');
+               website.add('_:tag' + i + ' sma:' + $('#selectList' + i).val() + ' "' + $('#textarea' + i).val() + '" .');
+           }
+       }
+
+       return website;
+   }
+
+   function loadAttributes() {
+       $.getJSON('schema.json', function (data) {
+           data = data['properties']
+
+           $.each(data, function (key, val) {
+               titlesTag.push(key);
+           });
+       });
+
+   }
+
+   function loadnewsite() {
+       var url = document.getElementById('urlinput').value;
+       if (url.substring(0, 7) != 'http://') {
+           if (url.substring(0, 4) != 'www.') {
+               url = 'www.'.concat(url);
+           }
+           url = 'http://'.concat(url);
+       }
+       document.getElementById('oFrame').src = url;
+
+   }
+
+   function save_rdf(rdf_data) {
+       // push the ajax stuff
+       $.ajax({
+           type: 'POST',
+           url: 'http://arkania.dyndns.org/redstore/data/' + sid + '.rdf',
+           processData: false,
+           contentType: 'application/rdf+xml',
+           success: function () {
+               //alert('Data successfully saved.');
+               $("#debug").html('Data successfully saved.');
+               for (var i = 1; i < counter; ++i) {
+                   $('#textarea' + i).val('');
+               }
+           },
+           data: rdf_data.dump({
+               format: 'application/rdf+xml',
+               serialize: true
+           }),
+       });
+   }
+
+   //******************************* START
+   $(document).ready(function () {
+
+
+       // if there is no session ID (neither in cookie or as param), generate one
+       sid = getCookie('wc_sid');
+       if (sid == null) {
+           if ($.QueryString['sid']) {
+               sid = $.QueryString['sid'];
+           } else {
+               sid = Math.uuid();
+           }
+           setCookie('wc_sid', sid, 10);
+       }
+       $("#debug").html(sid);
+
+       // get first url if provided
+       if ($.QueryString["s"]) {
+           document.getElementById('urlinput').value = $.QueryString["s"];
+           loadnewsite();
+       }
+
+       loadAttributes();
+       // browse to new adress
+       $("#urlinput").keypress(function (event) {
+           if (event.which == 13) {
+               event.preventDefault();
+               loadnewsite();
+           }
+       });
+
+       $("#savebutton").click(function () {
+           website = saveAttributes();
+           save_rdf(website);
+       });
+
+       $("#newcomparebutton").click(function () {
+           sid = Math.uuid();
+           setCookie('wc_sid', sid, 10);
+           $("#debug").html(sid);
+       });
+
+       $("#addtagbutton").click(function () {
+           if (counter > limit) {
+               alert("You have reached the limit of adding " + counter + " tags");
+           } else {
+               AddNewTag();
+           }
+       });
+   });
     
-
-    function AddTitleToSelectList(number) {
-        if(document.getElementById("newTitleTextArea"+number) != null) document.getElementById("newTitleTextArea"+number).remove();
-        
-        var newTitleTextArea = document.createElement('textarea');
-        newTitleTextArea.className='newTitleTextArea';
-        newTitleTextArea.setAttribute("name",'newTitleTextArea'+number);
-        newTitleTextArea.setAttribute("id",'newTitleTextArea'+number);
-        
-        var button = document.getElementById("titleButton"+number);
-        //newTitleTextArea.style.left = button.offsetLeft+"px";
-        newTitleTextArea.style.top = button.offsetTop+"px";
-        document.getElementById("tagslist").appendChild(newTitleTextArea);
-        
-        newTitleTextArea.focus();
-
-        newTitleTextArea.onkeypress=function(e){
-            if(e.keyCode==13) {
-                e.preventDefault();
-                if(this.value.length > maxTitleLength) {
-                    alert("The new title is too long! Do not exceed " + maxTitleLength + " characters please!");
-                }
-                else {
-                    if(this.value.length > 0) {
-                        var theSelectList = document.getElementById("selectList"+number);
-                        var myNewOption = new Option(this.value, this.value);
-                        var optsLen = theSelectList.options.length;
-                            theSelectList.options[optsLen] = myNewOption;
-                        theSelectList.selectedIndex = optsLen;
-                    }
-                    $(this).remove();
-                }
-            }
-        };
-    }
-
-	function saveAttributes() {
-		 // just some test rdf stuff
-
-		websiteurl = document.getElementById('oFrame').src;
-            var website = $.rdf.databank()
-            .prefix('dc', 'http://purl.org/dc/elements/1.1/')
-            .prefix('dct', 'http://purl.org/dc/terms/')
-            .prefix('xsd', 'http://www.w3.org/2001/XMLSchema#')
-            .prefix('wc', 'http://wecompare.ch/0.1/')
-            .prefix('sma', 'http://schema.org/0.9/')
-            .add('wc:'+sid+' wc:website "'+websiteurl+'" .');
-
-		for (var i = 1; i < counter; ++i) {
-            		website.add('wc:'+sid+' wc:tag _:tag'+i+' .');
-            		website.add('_:tag'+i+' wc:website "'+websiteurl+ '" .');
-            		website.add('_:tag'+i+' sma:'+$('#selectList'+i).val()+' "'+$('#textarea'+i).val()+'" .');
-		}
-		
-		return website;
-	}
-
-	
-	function loadAttributes() {
-		$.getJSON('schema.json', function(data) {
-			  data = data['properties']
-
-			  $.each(data, function(key, val) {
-			    titlesTag.push(key);
-			  });
-			});
-
-	}
-
-	//get params of document.location
-	(function($) {
-	    $.QueryString = (function(a) {
-		if (a == "") return {};
-		var b = {};
-		for (var i = 0; i < a.length; ++i)
-		{
-		    var p=a[i].split('=');
-		    if (p.length != 2) continue;
-		    b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
-		}
-		return b;
-	    })(window.location.search.substr(1).split('&'))
-	})(jQuery);
-
-	//work with cookies
-	function setCookie(name,value,days) {
-	    if (days) {
-		var date = new Date();
-		date.setTime(date.getTime()+(days*24*60*60*1000));
-		var expires = "; expires="+date.toGMTString();
-	    }
-	    else var expires = "";
-	    document.cookie = name+"="+value+expires+"; path=/";
-	}
-
-	function getCookie(name) {
-	    var nameEQ = name + "=";
-	    var ca = document.cookie.split(';');
-	    for(var i=0;i < ca.length;i++) {
-		var c = ca[i];
-		while (c.charAt(0)==' ') c = c.substring(1,c.length);
-		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-	    }
-	    return null;
-	}
+</script>
 
 
-    function save_rdf(rdf_data) {
-        // push the ajax stuff
-        $.ajax({
-              type: 'POST',
-              url: 'http://arkania.dyndns.org/redstore/data/'+sid+'.rdf',
-              processData: false,
-              contentType: 'application/rdf+xml',
-              success: function(){alert('Data successfully saved.'); },
-              data: rdf_data.dump({format:'application/rdf+xml', serialize: true}),
-        });    
-    }
-
-//******************************* START
-    $(document).ready(function(){
-
-	
-        // if there is no session ID (neither in cookie or as param), generate one
-	sid = getCookie('wc_sid'); 
-        if(sid == null) {
-	    if($.QueryString['sid']) {
-		sid = $.QueryString['sid'];
-	    } else { 
-		sid = Math.uuid(); 
-	    }
-	    setCookie('wc_sid', sid, 10);
-        }
-	$("#debug").html(sid);
-
-	// get first url if provided
-        if ($.QueryString["s"]) {    
-            document.getElementById('urlinput').value = $.QueryString["s"];
-            loadnewsite();
-        }
-
-	// browse to new adress
-        $("#urlinput").keypress(function(event) {
-            if ( event.which == 13 ) {
-                event.preventDefault();
-                loadnewsite();
-                }
-        });
-        
-        $("#savebutton").click(function() {
-            website = saveAttributes();
-            save_rdf(website);
-            });
-
-        $("#newcomparebutton").click(function() {
-	    sid = Math.uuid(); 
-	    setCookie('wc_sid', sid, 10);
-	    $("#debug").html(sid);
-            });
-
-        $("#addtagbutton").click(function() {
-            if (counter > limit)  {
-                alert("You have reached the limit of adding " + counter + " tags");
-            }
-            else {
-		AddNewTag();
-            }
-        });
-
-	loadAttributes();
-
-    });
-    
-    
-    <!--
-    -->
-    
-   </script>
-
-    <div style="width: 73%; height: 100%; left:0px; top: 0px; position:absolute;" class="frame">
-      <div id="oDiv" style="width: 100%; padding: 2px; "><span style="font-family: Helvetica, sans-serif;">Webaddress: </span><input id="urlinput" type="text" style="width: 50%" value="http://www.unifr.ch"/> &nbsp; &nbsp;<a href="result.html">... show the overview.</a></div>
-      <iframe style="width: 100%; height:94%" id="oFrame" class="objectFrame" name="objectFrame" src="http://www.unifr.ch"></iframe>
-    </div>
-    <div style=" width: 27%;height: 100%; right:0px; top:0px; position: absolute;" class="attributes">
-        <div style="padding-left: 2px; top: 30px; position: absolute; color: blue;">
-            <div style="border: 1px; padding: 5px; margin: 0px auto;">
-                    <div>
-                        <button id="addtagbutton" name="add_tag">
-                            add tag
-                        </button>
-                        <button id="savebutton" name="save">
-                            save
-                        </button>
+<div style="width: 73%; height: 100%; left:0px; top: 0px; position:absolute;" class="frame">
+	<div id="oDiv" style="width: 100%; padding: 2px; "><span style="font-family: Helvetica, sans-serif;">Webaddress: </span>
+		<input id="urlinput" type="text" style="width: 50%" value="http://www.unifr.ch"/> &nbsp; &nbsp;<a href="result.html">... show the overview.</a>
+	</div>
+	<iframe style="width: 100%; height:94%" id="oFrame" class="objectFrame" name="objectFrame" src="http://www.unifr.ch"></iframe>
+</div>
+<div style=" width: 27%;height: 100%; right:0px; top:0px; position: absolute;" class="attributes">
+	<div style="padding-left: 2px; top: 30px; position: absolute; color: blue;">
+		<div style="border: 1px; padding: 5px; margin: 0px auto;">
+			<div>
                         <button id="newcomparebutton" name="save">
                             start new comparision
                         </button>
-                    </div>
-                <div id="tagslist">
-                </div>
-            </div>
-        </div>
-     <span style="font-size: 8pt; bottom: 0px; right: 2px; position: absolute;"><span id="debug"></span> $Id$</span>
-    </div>
+			</div>
 
- </body>
- </html>
+	                <div id="tagslist" style="border: 1px solid blue;">
+			</div>
+
+			<div>
+				<button id="addtagbutton" name="add_tag">
+				    add tag
+				</button>
+				<button id="savebutton" name="save">
+				    save
+				</button>
+			</div>
+		</div>
+	</div>
+	<span style="font-size: 8pt; bottom: 0px; right: 2px; position: absolute;"><span id="debug"></span> $Id$</span>
+</div>
+
+</body>
+</html>
