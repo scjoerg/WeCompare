@@ -1,0 +1,122 @@
+ <!DOCTYPE html>
+
+ <html lang="en">
+ <head>
+   <meta charset="utf-8">
+   <title>weCompare - List</title>
+    <LINK href="wecomparestyle.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+    <!-- Script stuff -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="http://rdfquery.googlecode.com/files/jquery.rdfquery.core.min-1.0.js"></script>
+
+    <!-- Our code -->
+    <script>
+
+    // global variables
+    var sid = null
+
+    Math.uuid = function() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+            return v.toString(16);
+        });
+    };
+
+
+	function loadResults() {
+		$.getJSON('http://arkania.dyndns.org/redstore/query?query=PREFIX+wc%3A+<http%3A%2F%2Fwecompare.ch%2F0.1%2F>%0D%0ASELECT+%3Fsite+%3Fv+%3Fo++WHERE+{%0D%0A+{wc%3A'+sid+'+wc%3Awebsite+%3Fsite}%0D%0A+{wc%3A'+sid+'+wc%3Atag+%3Ftag}%0D%0A+{%3Ftag+%3Fv+%3Fo}%0D%0A}&lang=laqrs&format=json', function(data) {
+			  data = data['results']
+			  data = data['bindings']
+
+			  $.each(data, function(key, val) {
+			    alert(key);
+			  });
+			});
+
+	}
+
+	//get params of document.location
+	(function($) {
+	    $.QueryString = (function(a) {
+		if (a == "") return {};
+		var b = {};
+		for (var i = 0; i < a.length; ++i)
+		{
+		    var p=a[i].split('=');
+		    if (p.length != 2) continue;
+		    b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+		}
+		return b;
+	    })(window.location.search.substr(1).split('&'))
+	})(jQuery);
+
+	//work with cookies
+	function setCookie(name,value,days) {
+	    if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	    }
+	    else var expires = "";
+	    document.cookie = name+"="+value+expires+"; path=/";
+	}
+
+	function getCookie(name) {
+	    var nameEQ = name + "=";
+	    var ca = document.cookie.split(';');
+	    for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	    }
+	    return null;
+	}
+
+
+
+//******************************* START
+    $(document).ready(function(){
+
+	
+        // if there is no session ID (neither in cookie or as param), generate one
+	sid = getCookie('wc_sid'); 
+        if(sid == null) {
+	    if($.QueryString['sid']) {
+		sid = $.QueryString['sid'];
+	    } else { 
+		sid = Math.uuid(); 
+	    }
+	    setCookie('wc_sid', sid, 10);
+        }
+	$("#debug").html(sid);
+
+
+	loadResults();
+    });
+    
+    
+    <!--
+    -->
+    
+   </script>
+
+    <div style="width: 73%; height: 100%; left:0px; top: 0px; position:absolute;" class="frame">
+      <div id="oDiv" style="width: 100%; padding: 2px; "><span style="font-family: Helvetica, sans-serif;">Results</span></div>
+	<div id="results"> </div>
+    </div>
+    <div style=" width: 27%;height: 100%; right:0px; top:0px; position: absolute;" class="attributes">
+        <div style="padding-left: 2px; top: 30px; position: absolute; color: blue;">
+            <div style="border: 1px; padding: 5px; margin: 0px auto;">
+                    <div>
+                    </div>
+                <div id="tagslist">
+                </div>
+            </div>
+        </div>
+     <span style="font-size: 8pt; bottom: 0px; right: 2px; position: absolute;"><span id="debug"></span> $Id$</span>
+    </div>
+
+ </body>
+ </html>
