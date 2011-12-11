@@ -23,13 +23,22 @@ function loadResults() {
         data = data['bindings']
         var items = [];
         var currentSite = '';
+		var amountOfPages = 0;
+		var maxAmountOfValues = 0;
+		var tempAmountOfValues = 0;
         $.each(data, function (key, val) {
 
             if (currentSite != val['site']['value']) {
                 currentSite = val['site']['value'];
                 items.push('<li id="' + key + '"><big>' + val['site']['value'] + '</big></li>');
+				amountOfPages=amountOfPages+1;
+				if (tempAmountOfValues > maxAmountOfValues) {
+					maxAmountOfValues=tempAmountOfValues;
+				}
+				tempAmountOfValues=0;
             };
             items.push('<li id="' + key + '">' + val['v']['value'].match(/[^/]+$/) + ": " + val['o']['value'] + '</li>');
+			tempAmountOfValues=tempAmountOfValues+1;
         });
 
         $('<ul/>', {
