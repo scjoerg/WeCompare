@@ -19,6 +19,7 @@
    var titlesTag = [];
    var maxTitleLength = 30;
    var sid = null;
+   var firstSite = 'www.unifr.ch';
 
    function GetTitles() {
     	websiteurl = document.getElementById('oFrame').src;
@@ -37,7 +38,7 @@
 
    }
 
-   function AddNewTag() {
+   function AddNewTag(title, txtvalue) {
        var newdiv = document.createElement('div');
        newdiv.className = "row";
 
@@ -48,7 +49,15 @@
        var selectList = document.createElement('select');
        selectList.setAttribute('name', 'selectList' + counter);
        selectList.setAttribute('id', 'selectList' + counter);
-       selectList.style.width = "180px";
+
+       if (title != undefined) {
+           var option = document.createElement('option');
+           option.value = title;
+           option.text = title; 
+           selectList.appendChild(option);
+      }
+
+      selectList.style.width = "180px";
        for (var i = 0; i < titlesTag.length; i++) {
            var option = document.createElement('option');
            option.value = titlesTag[i];
@@ -70,6 +79,9 @@
        newtextarea.setAttribute("id", 'textarea' + counter);
        newtextarea.setAttribute("cols", "37");
        newtextarea.setAttribute("rows", "4");
+       if(txtvalue != '') {
+		newtextarea.value = txtvalue;	
+       }
        newdiv.appendChild(newtextarea);
 
        document.getElementById("tagslist").appendChild(newdiv);
@@ -141,12 +153,30 @@
    function loadnewsite() {
        var url = document.getElementById('urlinput').value;
        if (url.substring(0, 7) != 'http://') {
-           if (url.substring(0, 4) != 'www.') {
-               url = 'www.'.concat(url);
-           }
+           //not possible to get to website which have no www
+           //if (url.substring(0, 4) != 'www.') {
+           //    url = 'www.'.concat(url);
+           //}
            url = 'http://'.concat(url);
        }
+       if (url.substring(url.length-1, url.length) != '/') {
+           url = url.concat('/');
+       }
+       document.getElementById('urlinput').value = url;
        document.getElementById('oFrame').src = url;
+       get_tags(url);
+
+   }
+
+   function get_tags(url) {
+       	$.getJSON('http://arkania.dyndns.org/redstore/query?query=PREFIX+rdf%3A+<http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23>%0D%0APREFIX+rdfs%3A+<http%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23>%0D%0APREFIX+wc%3A+<http%3A%2F%2Fwecompare.ch%2F0.1%2F>%0D%0A%0D%0ASELECT+DISTINCT+%3Fattributetitle+(SAMPLE(%3Fvalues)+AS+%3Fattributevalue)++WHERE+{%0D%0A+{%3Ftag+wc%3Awebsite+"'+url+'"}%0D%0A+{%3Ftag+%3Fattributetitle+%3Fvalues}%0D%0A+FILTER+(+%3Fattributetitle+!%3D+wc%3Awebsite+)%0D%0A+FILTER+(+%3Fattributetitle+!%3D+wc%3Atag+)%0D%0A}+GROUP+BY+%3Fattributetitle&lang=laqrs&format=json', function (data) {
+		data = data['results'];
+		data = data['bindings'];
+		$.each(data, function (key, val) {
+			//titlesTag.push(val.attributetitle.value.match(/[^/]+$/));
+			AddNewTag(val.attributetitle.value.match(/[^/]+$/), val.attributevalue.value);
+        	});
+    	});
 
    }
 
@@ -190,6 +220,9 @@
        if ($.QueryString["s"]) {
            document.getElementById('urlinput').value = $.QueryString["s"];
            loadnewsite();
+       } else {
+           document.getElementById('urlinput').value = firstSite;
+           loadnewsite();
        }
 
        loadAttributes();
@@ -228,7 +261,7 @@
 
 <div style="width: 73%; height: 100%; left:0px; top: 0px; position:absolute;" class="frame">
 	<div id="oDiv" style="width: 100%; padding: 2px; "><span style="font-family: Helvetica, sans-serif;">Webaddress: </span>
-		<input id="urlinput" type="text" style="width: 50%" value="http://www.unifr.ch"/> &nbsp; &nbsp;
+		<input id="urlinput" type="text" style="width: 50%" value=""/> &nbsp; &nbsp;
 			<button onclick="location.href='result.html'">
 			    show the comparision
 			</button>
@@ -237,7 +270,7 @@
                             start new comparision
                         </button>
 	</div>
-	<iframe style="width: 100%; height:94%" id="oFrame" class="objectFrame" name="objectFrame" src="http://www.unifr.ch"></iframe>
+	<iframe style="width: 100%; height:94%" id="oFrame" class="objectFrame" name="objectFrame" src=""></iframe>
 </div>
 <div style=" width: 27%;height: 100%; right:0px; top:0px; position: absolute;" class="attributes">
 	<div style="padding-left: 2px; top: 30px; position: absolute; color: blue;">
