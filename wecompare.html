@@ -20,6 +20,23 @@
    var maxTitleLength = 30;
    var sid = null;
 
+   function GetTitles() {
+    	websiteurl = document.getElementById('oFrame').src;
+
+	if(websiteurl.charAt(websiteurl.length -1) == "/") {
+		websiteurl = websiteurl.substring(0, websiteurl.length-1);
+	}  
+
+	$.getJSON('http://arkania.dyndns.org:9898/query?query=PREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+wc%3A+%3Chttp%3A%2F%2Fwecompare.ch%2F0.1%2F%3E%0D%0APREFIX+purl%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0A%0D%0ASELECT+DISTINCT+%3Ftitle+WHERE+%7B%0D%0A++%3Fsid+wc%3Awebsite+%22'+ websiteurl +'%2F%22+.%0D%0A++%3Fsid+wc%3Atag+%3Ftagident+.%0D%0A++%3Ftagident+purl%3Atitle+%3Ftitle%0D%0A%7D&lang=laqrs&format=json', function (data) {
+		data = data['results'];
+		data = data['bindings'];
+		$.each(data, function (key, val) {
+			titlesTag.push(val.title.value);
+        	});
+    	});
+
+   }
+
    function AddNewTag() {
        var newdiv = document.createElement('div');
        newdiv.className = "row";
@@ -157,7 +174,6 @@
    //******************************* START
    $(document).ready(function () {
 
-
        // if there is no session ID (neither in cookie or as param), generate one
        sid = getCookie('wc_sid');
        if (sid == null) {
@@ -176,7 +192,9 @@
            loadnewsite();
        }
 
-       loadAttributes();
+       //loadAttributes();
+       GetTitles();
+
        // browse to new adress
        $("#urlinput").keypress(function (event) {
            if (event.which == 13) {
