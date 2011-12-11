@@ -26,6 +26,7 @@ function loadResults() {
 		var amountOfPages = 0;
 		var maxAmountOfValues = 0;
 		var tempAmountOfValues = 0;
+		var attributes=new Array();
         $.each(data, function (key, val) {
             if (currentSite != val['site']['value']) {
                 currentSite = val['site']['value'];
@@ -37,11 +38,18 @@ function loadResults() {
 				tempAmountOfValues=0;
             };
             items.push('<li id="' + key + '">' + val['v']['value'].match(/[^/]+$/) + ": " + val['o']['value'] + '</li>');
+            attributes[tempAmountOfValues]=val['v']['value'].match(/[^/]+$/);
 			tempAmountOfValues=tempAmountOfValues+1;
         });
         
         tempAmountOfValues=0;
-        items.push('<table  border="2" > <tr> ');
+        items.push('<table  border="2" > <tr> <th> WeCompare </th> ');
+        while (tempAmountOfValues <= maxAmountOfValues) {
+        	items.push('<th> '+attributes[tempAmountOfValues]+' </th>');
+        	tempAmountOfValues=tempAmountOfValues+1;
+        }
+        tempAmountOfValues=0;
+
         $.each(data, function (key, val) {
             if (currentSite != val['site']['value']) {
             	if(tempAmountOfValues!=0){
