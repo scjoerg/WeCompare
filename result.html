@@ -27,7 +27,6 @@ function loadResults() {
 		var maxAmountOfValues = 0;
 		var tempAmountOfValues = 0;
         $.each(data, function (key, val) {
-
             if (currentSite != val['site']['value']) {
                 currentSite = val['site']['value'];
                 items.push('<li id="' + key + '"><big>' + val['site']['value'] + '</big></li>');
@@ -40,6 +39,17 @@ function loadResults() {
             items.push('<li id="' + key + '">' + val['v']['value'].match(/[^/]+$/) + ": " + val['o']['value'] + '</li>');
 			tempAmountOfValues=tempAmountOfValues+1;
         });
+        
+        items.push('<table> border="2" <tr> ');
+        $.each(data, function (key, val) {
+            if (currentSite != val['site']['value']) {
+                currentSite = val['site']['value'];
+                items.push(' </tr> <tr> <th> '+ val['site']['value'] + ' </th> ');
+				amountOfPages=amountOfPages+1;
+            };
+            items.push('<th> ' + val['v']['value'].match(/[^/]+$/) + ": " + val['o']['value'] + ' </th> ');
+        });
+        items.push('</tr> </table>');
 
         $('<ul/>', {
             'class': 'my-new-list',
