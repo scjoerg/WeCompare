@@ -126,7 +126,6 @@
    function saveAttributes() {
        // just some test rdf stuff
        websiteurl = document.getElementById('oFrame').src;
-	alert(websiteurl);
        var website = $.rdf.databank().prefix('dc', 'http://purl.org/dc/elements/1.1/').prefix('dct', 'http://purl.org/dc/terms/').prefix('xsd', 'http://www.w3.org/2001/XMLSchema#').prefix('wc', 'http://wecompare.ch/0.1/').prefix('sma', 'http://schema.org/0.9/').add('wc:' + sid + ' wc:website "' + websiteurl + '" .');
 
        for (var i = 1; i < counter; ++i) {
@@ -165,6 +164,7 @@
        }
        document.getElementById('urlinput').value = url;
        document.getElementById('oFrame').src = url;
+       clear_tags();
        get_tags(url);
 
    }
