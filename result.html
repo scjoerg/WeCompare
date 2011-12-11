@@ -59,7 +59,7 @@ function loadResults() {
 	            	}
 	            }
                 currentSite = val['site']['value'];
-                items.push(' </tr> <tr> <th> <a href="'+val['site']['value']+'"> ' +val['site']['value']+ ' </a> </th> ');
+                items.push(' </tr> <tr> <th> <a href="wecompare.html?s='+val['site']['value']+'"> ' +val['site']['value']+ ' </a> </th> ');
 				tempAmountOfValues=tempAmountOfValues+1;
             };
             items.push('<th> ' + val['o']['value'] + ' </th> ');
