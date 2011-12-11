@@ -16,6 +16,18 @@ SELECT * WHERE {
 } LIMIT 10
 
 
+***** Query to get all attributes from one Website, not session based
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wc: <http://wecompare.ch/0.1/>
+
+SELECT DISTINCT ?attributetitle (SAMPLE(?values) AS ?attributevalue)  WHERE {
+ {?tag wc:website "http://www.unifr.ch/"}
+ {?tag ?attributetitle ?values}
+ FILTER ( ?attributetitle != wc:website )
+ FILTER ( ?attributetitle != wc:tag )
+} GROUP BY ?attributetitle
+
 **** Query and give only ?site and ?tag back
 
 
