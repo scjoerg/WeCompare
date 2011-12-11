@@ -40,14 +40,20 @@ function loadResults() {
 			tempAmountOfValues=tempAmountOfValues+1;
         });
         
-        items.push('<table> border="2" <tr> ');
+        tempAmountOfValues=0;
+        items.push('<table  border="2" > <tr> ');
         $.each(data, function (key, val) {
             if (currentSite != val['site']['value']) {
+            	while(tempAmountOfValues < maxAmountOfValues) {
+            		items.push(' <th> - </th>');
+            		tempAmountOfValues=tempAmountOfValues+1;
+            	}
                 currentSite = val['site']['value'];
                 items.push(' </tr> <tr> <th> '+ val['site']['value'] + ' </th> ');
-				amountOfPages=amountOfPages+1;
+				tempAmountOfValues=tempAmountOfValues+1;
             };
             items.push('<th> ' + val['v']['value'].match(/[^/]+$/) + ": " + val['o']['value'] + ' </th> ');
+            tempAmountOfValues=tempAmountOfValues+1;
         });
         items.push('</tr> </table>');
 
