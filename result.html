@@ -44,10 +44,12 @@ function loadResults() {
         items.push('<table  border="2" > <tr> ');
         $.each(data, function (key, val) {
             if (currentSite != val['site']['value']) {
-            	while(tempAmountOfValues < maxAmountOfValues) {
-            		items.push(' <th> - </th>');
-            		tempAmountOfValues=tempAmountOfValues+1;
-            	}
+            	if(tempAmountOfValues!=0){
+	            	while(tempAmountOfValues <= maxAmountOfValues) {
+	            		items.push(' <th> - </th>');
+	            		tempAmountOfValues=tempAmountOfValues+1;
+	            	}
+	            }
                 currentSite = val['site']['value'];
                 items.push(' </tr> <tr> <th> '+ val['site']['value'] + ' </th> ');
 				tempAmountOfValues=tempAmountOfValues+1;
