@@ -60,7 +60,7 @@ function loadResults() {
             if (currentSite != val['site']['value']) {
                 currentSite = val['site']['value'];
 				storage[amountOfPages+1]=new Array();
-				storage[amountOfPages+1][0]=val['site']['value'];
+				storage[amountOfPages+1][0]='<a href="wecompare.html?s='+val['site']['value']+' ">' +val['site']['value']+ ' </a>';
 				amountOfPages=amountOfPages+1;
 				tempAmountOfValues=0;
             };
