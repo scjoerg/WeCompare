@@ -25,16 +25,24 @@ Array.prototype.isKey = function(){
   return false; 
 }; 
 
+Array.prototype.isNotKey = function(){ 
+  for(i in this){ 
+    if(i === arguments[0]) 
+      return false; 
+  }; 
+  return true; 
+}; 
+
 Array.prototype.getPosition = function() {
 	var counter=0;
 	for (i in this) {
 		if(i == arguments[0]) {
 			return counter;
-		}
+		};
 		++counter;
-	}
+	};
 	return 999999;
-}
+};
 
 function loadResults() {
     $.getJSON('http://arkania.dyndns.org/redstore/query?query=PREFIX+wc%3A+<http%3A%2F%2Fwecompare.ch%2F0.1%2F>%0D%0ASELECT+%3Fsite+%3Fv+%3Fo+WHERE+{%0D%0A+{wc%3A' + sid + '+wc%3Awebsite+%3Fsite}%0D%0A+{wc%3A' + sid + '+wc%3Atag+%3Ftag}%0D%0A+{%3Ftag+wc%3Awebsite+%3Fsite}%0D%0A+{%3Ftag+%3Fv+%3Fo}%0D%0A+FILTER+(%3Fsite+!%3D+%3Fo)%0D%0A}&lang=laqrs&format=json', function (data) {
@@ -61,10 +69,9 @@ function loadResults() {
             };
 //            items.push('<li id="' + key + '">' + val['v']['value'].match(/[^/]+$/) + ": " + val['o']['value'] + '</li>');
 			tempAmountOfValues=tempAmountOfValues+1;
-			if (storage[0].isKey(val['v']['value'].match(/[^/]+$/))) { }
-			else {
+			if (storage[0].isNotKey(val['v']['value'].match(/[^/]+$/))) {
 				storage[0][storage[0].length]=val['v']['value'].match(/[^/]+$/);
-			}
+			};
 			storage[amountOfPages][storage[0].getPosition(val['v']['value'].match(/[^/]+$/))]=val['o']['value'];
         });
         
@@ -90,7 +97,7 @@ function loadResults() {
         }).appendTo('#results');
     });
 
-}
+};
 
 
 
