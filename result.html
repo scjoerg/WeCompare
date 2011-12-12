@@ -17,6 +17,25 @@
 // global variables
 var sid = null
 
+Array.prototype.isKey = function(){ 
+  for(i in this){ 
+    if(i === arguments[0]) 
+      return true; 
+  }; 
+  return false; 
+}; 
+
+Array.prototype.getPosition = function() {
+	var counter=0;
+	for (i in this) {
+		if(i == arguments[0]) {
+			return counter;
+		}
+		++counter;
+	}
+	return 999999;
+}
+
 function loadResults() {
     $.getJSON('http://arkania.dyndns.org/redstore/query?query=PREFIX+wc%3A+<http%3A%2F%2Fwecompare.ch%2F0.1%2F>%0D%0ASELECT+%3Fsite+%3Fv+%3Fo+WHERE+{%0D%0A+{wc%3A' + sid + '+wc%3Awebsite+%3Fsite}%0D%0A+{wc%3A' + sid + '+wc%3Atag+%3Ftag}%0D%0A+{%3Ftag+wc%3Awebsite+%3Fsite}%0D%0A+{%3Ftag+%3Fv+%3Fo}%0D%0A+FILTER+(%3Fsite+!%3D+%3Fo)%0D%0A}&lang=laqrs&format=json', function (data) {
         data = data['results']
@@ -27,51 +46,42 @@ function loadResults() {
 		var maxAmountOfValues = 0;
 		var tempAmountOfValues = 0;
 		var attributes=new Array();
+		var storage=new Array();
         $.each(data, function (key, val) {
             if (currentSite != val['site']['value']) {
                 currentSite = val['site']['value'];
 //                items.push('<li id="' + key + '"><big>' + val['site']['value'] + '</big></li>');
+				storage[amountOfPages+1]=new Array();
+				storage[amountOfPages+1][0]=val['site']['value'];
 				amountOfPages=amountOfPages+1;
-				if (tempAmountOfValues > maxAmountOfValues) {
-					maxAmountOfValues=tempAmountOfValues;
-				}
+//				if (tempAmountOfValues > maxAmountOfValues) {
+//					maxAmountOfValues=tempAmountOfValues;
+//				}
 				tempAmountOfValues=0;
             };
 //            items.push('<li id="' + key + '">' + val['v']['value'].match(/[^/]+$/) + ": " + val['o']['value'] + '</li>');
-            attributes[tempAmountOfValues]=val['v']['value'].match(/[^/]+$/);
 			tempAmountOfValues=tempAmountOfValues+1;
+			if (storage[0].isKey(val['v']['value'].match(/[^/]+$/))) { }
+			else {
+				storage[0][storage[0].length]=val['v']['value'].match(/[^/]+$/);
+			}
+			storage[amountOfPages][storage[0].getPosition(val['v']['value'].match(/[^/]+$/))]=val['o']['value'];
         });
         
-        tempAmountOfValues=0;
-        items.push('<table  border="2" > <tr> <th> WeCompare </th> ');
-        while (tempAmountOfValues < maxAmountOfValues) {
-        	items.push('<th> '+attributes[tempAmountOfValues]+' </th>');
-        	tempAmountOfValues=tempAmountOfValues+1;
+//        tempAmountOfValues=0;
+        items.push('<table  border="2" > <tr> ');
+        var temp=0;
+        var depth=0;
+        while (depth < storage.length) {
+	        while (temp < storage[0].length) {
+	        	items.push('<th> '+storage[0][temp]+' </th>');
+   	 	    	++temp;
+	   	    }
+	   	    items.push('</tr> <tr>');
+        	++depth;
         }
+        items.push('</tr></table>');
         tempAmountOfValues=0;
-
-        $.each(data, function (key, val) {
-            if (currentSite != val['site']['value']) {
-            	if(tempAmountOfValues!=0){
-	            	while(tempAmountOfValues <= maxAmountOfValues) {
-	            		items.push(' <th> - </th>');
-	            		tempAmountOfValues=tempAmountOfValues+1;
-	            	}
-	            }
-                currentSite = val['site']['value'];
-                items.push(' </tr> <tr> <th> <a href="wecompare.html?s='+val['site']['value']+'"> ' +val['site']['value']+ ' </a> </th> ');
-				tempAmountOfValues=tempAmountOfValues+1;
-            };
-            items.push('<th> ' + val['o']['value'] + ' </th> ');
-            tempAmountOfValues=tempAmountOfValues+1;
-        });
-        items.push('</tr> </table>');
-
-        $('<ul/>', {
-            'class': 'my-new-list',
-            html: items.join('')
-        }).appendTo('#results');
-    });
 
 }
 
