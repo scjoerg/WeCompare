@@ -55,6 +55,7 @@ function loadResults() {
 		var tempAmountOfValues = 0;
 		var attributes=new Array();
 		var storage=new Array();
+		storage[0]=new Array();
         $.each(data, function (key, val) {
             if (currentSite != val['site']['value']) {
                 currentSite = val['site']['value'];
