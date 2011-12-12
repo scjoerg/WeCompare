@@ -36,7 +36,7 @@ Array.prototype.isNotKey = function(){
 Array.prototype.getPosition = function() {
 	var counter=0;
 	for (i in this) {
-		if(i === arguments[0]) {
+		if(i == arguments[0]) {
 			return counter;
 		}
 		++counter;
@@ -66,12 +66,15 @@ function loadResults() {
 				tempAmountOfValues=0;
             };
 			tempAmountOfValues=tempAmountOfValues+1;
-			if (storage[0].isNotKey(val['v']['value'].match(/[^/]+$/))) {
+			if($.inArray(val['v']['value'].match(/[^/]+$/), storage[0]) < 0) {
+			
+//			if (storage[0].isNotKey(val['v']['value'].match(/[^/]+$/))) {
 				storage[0][storage[0].length]=val['v']['value'].match(/[^/]+$/);
 			};
-			storage[amountOfPages][storage[0].getPosition(val['v']['value'].match(/[^/]+$/))]=val['o']['value'];
+//			storage[amountOfPages][storage[0].getPosition(val['v']['value'].match(/[^/]+$/))]=val['o']['value'];
+			storage[amountOfPages][$.inArray(val['v']['value'].match(/[^/]+$/), storage[0])]=val['o']['value'];
 			// debug, please remove following line
-				storage[amountOfPages][1]=storage[0].getPosition(val['v']['value'].match(/[^/]+$/));
+//				storage[amountOfPages][1]=storage[0].getPosition(val['v']['value'].match(/[^/]+$/));
 				
         });
         storage[0][0]='WeCompare';
