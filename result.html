@@ -78,11 +78,12 @@ function loadResults() {
         var depth=0;
         while (depth < storage.length) {
 	        while (temp < storage[0].length) {
-	        	items.push('<th> '+storage[0][temp]+' </th>');
+	        	items.push('<th> '+storage[depth][temp]+' </th>');
    	 	    	++temp;
 	   	    }
 	   	    items.push('</tr> <tr>');
         	++depth;
+        	temp=0;
         }
         items.push('</tr></table>');
         tempAmountOfValues=0;
