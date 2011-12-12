@@ -75,6 +75,7 @@ function loadResults() {
 			storage[amountOfPages][$.inArray(val['v']['value'].match(/[^/]+$/), storage[0])]=val['o']['value'];
 			// debug, please remove following line
 //				storage[amountOfPages][1]=storage[0].getPosition(val['v']['value'].match(/[^/]+$/));
+				storage[amountOfPages][1]=$.inArray(val['v']['value'].match(/[^/]+$/), storage[0]);
 				
         });
         storage[0][0]='WeCompare';
