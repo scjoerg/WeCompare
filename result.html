@@ -74,6 +74,7 @@ function loadResults() {
 			};
 			storage[amountOfPages][storage[0].getPosition(val['v']['value'].match(/[^/]+$/))]=val['o']['value'];
         });
+        storage[0][0]='WeCompare';
         
 //        tempAmountOfValues=0;
         items.push('<table  border="2" > <tr> ');
@@ -89,6 +90,7 @@ function loadResults() {
         }
         items.push('</tr></table>');
         tempAmountOfValues=0;
+        items.push('<small> '+storage[0].length+' attributes of '+storage.length+' pages </small>');
 
         
         $('<ul/>', {
