@@ -36,11 +36,11 @@ Array.prototype.isNotKey = function(){
 Array.prototype.getPosition = function() {
 	var counter=0;
 	for (i in this) {
-		if(i == arguments[0]) {
+		if(i === arguments[0]) {
 			return counter;
-		};
+		}
 		++counter;
-	};
+	}
 	return 999999;
 };
 
