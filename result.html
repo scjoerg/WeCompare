@@ -83,6 +83,13 @@ function loadResults() {
         items.push('</tr></table>');
         tempAmountOfValues=0;
 
+        
+        $('<ul/>', {
+            'class': 'my-new-list',
+            html: items.join('')
+        }).appendTo('#results');
+    });
+
 }
 
 
