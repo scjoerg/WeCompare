@@ -88,7 +88,7 @@ function loadResults() {
         }
         items.push('</tr></table>');
         tempAmountOfValues=0;
-        items.push('<small> '+storage[0].length+' attributes of '+storage.length+' pages </small>');
+        items.push('<small> '+(storage[0].length-1)+' attributes of '+(storage.length-1)+' pages </small>');
 
         
         $('<ul/>', {
