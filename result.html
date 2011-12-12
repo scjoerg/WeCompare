@@ -58,16 +58,11 @@ function loadResults() {
         $.each(data, function (key, val) {
             if (currentSite != val['site']['value']) {
                 currentSite = val['site']['value'];
-//                items.push('<li id="' + key + '"><big>' + val['site']['value'] + '</big></li>');
 				storage[amountOfPages+1]=new Array();
 				storage[amountOfPages+1][0]=val['site']['value'];
 				amountOfPages=amountOfPages+1;
-//				if (tempAmountOfValues > maxAmountOfValues) {
-//					maxAmountOfValues=tempAmountOfValues;
-//				}
 				tempAmountOfValues=0;
             };
-//            items.push('<li id="' + key + '">' + val['v']['value'].match(/[^/]+$/) + ": " + val['o']['value'] + '</li>');
 			tempAmountOfValues=tempAmountOfValues+1;
 			if (storage[0].isNotKey(val['v']['value'].match(/[^/]+$/))) {
 				storage[0][storage[0].length]=val['v']['value'].match(/[^/]+$/);
@@ -75,8 +70,8 @@ function loadResults() {
 			storage[amountOfPages][storage[0].getPosition(val['v']['value'].match(/[^/]+$/))]=val['o']['value'];
         });
         storage[0][0]='WeCompare';
-        
-//        tempAmountOfValues=0;
+
+//		print the arrays in a table
         items.push('<table  border="2" > <tr> ');
         var temp=0;
         var depth=0;
