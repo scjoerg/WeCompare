@@ -66,33 +66,8 @@ function loadResults() {
 		var attributes = [];
 		var storage = new Object();
         $.each(data, function (key, val) {
-<<<<<<< HEAD
-            if (currentSite != val['site']['value']) {
-                currentSite = val['site']['value'];
-//				storage[amountOfPages+1]=new Array();
-				storage[amountOfPages+1] = ( typeof storage[amountOfPages+1] != 'undefined' && storage[amountOfPages+1] instanceof Array ) ? storage[amountOfPages+1] : [];
-				storage[amountOfPages+1][0]='<a href="wecompare.html?s='+val['site']['value']+' ">' +val['site']['value']+ ' </a>';
-				amountOfPages=amountOfPages+1;
-				tempAmountOfValues=0;
-            };
-			tempAmountOfValues=tempAmountOfValues+1;
-			if(compare(storage[0],val['v']['value'].match(/[^/]+$/)) < 0) {
-//			if($.inArray(val['v']['value'].match(/[^/]+$/), storage[0]) < 0) {			
-//			if (storage[0].isNotKey(val['v']['value'].match(/[^/]+$/))) {
-				storage[0][storage[0].length]=val['v']['value'].match(/[^/]+$/);
-			};
-//			storage[amountOfPages][storage[0].getPosition(val['v']['value'].match(/[^/]+$/))]=val['o']['value'];
-//			storage[amountOfPages][$.inArray(val['v']['value'].match(/[^/]+$/), storage[0])]=val['o']['value'];
-			storage[amountOfPages][compare(storage[0],val['v']['value'].match(/[^/]+$/))]=val['o']['value'];
-			// debug, please remove following line
-//				storage[amountOfPages][1]=storage[0].getPosition(val['v']['value'].match(/[^/]+$/));
-//				storage[amountOfPages][1]=$.inArray(val['v']['value'].match(/[^/]+$/), storage[0]);
-				storage[amountOfPages][1]=compare(storage[0],val['v']['value'].match(/[^/]+$/));
-				
-=======
 		storage[val['site']['value']] = new Object();
 		storage[val['site']['value']][val['v']['value'].match(/[^/]+$/)] = val['o']['value'];
->>>>>>> as object
         });
 
 
