@@ -78,18 +78,27 @@ function loadResults() {
 				tempAmountOfValues=0;
             };
 			tempAmountOfValues=tempAmountOfValues+1;
-			if(compare(storage[0],val['v']['value'].match(/[^/]+$/)) < 0) {
+			var i=0;
+			var b=0;
+			var position=0;
+			while (i < storage[0].length) {
+				if(storage[0][i] == val['v']['value'].match(/[^/]+$/)) {
+					b=1;
+					position=i;
+				}
+			}
+			if(b == 0) {
 //			if($.inArray(val['v']['value'].match(/[^/]+$/), storage[0]) < 0) {			
 //			if (storage[0].isNotKey(val['v']['value'].match(/[^/]+$/))) {
 				storage[0][storage[0].length]=val['v']['value'].match(/[^/]+$/);
 			};
 //			storage[amountOfPages][storage[0].getPosition(val['v']['value'].match(/[^/]+$/))]=val['o']['value'];
 //			storage[amountOfPages][$.inArray(val['v']['value'].match(/[^/]+$/), storage[0])]=val['o']['value'];
-			storage[amountOfPages][compare(storage[0],val['v']['value'].match(/[^/]+$/))]=val['o']['value'];
+			storage[amountOfPages][i]=val['o']['value'];
 			// debug, please remove following line
 //				storage[amountOfPages][1]=storage[0].getPosition(val['v']['value'].match(/[^/]+$/));
 //				storage[amountOfPages][1]=$.inArray(val['v']['value'].match(/[^/]+$/), storage[0]);
-				storage[amountOfPages][1]=compare(storage[0],val['v']['value'].match(/[^/]+$/));
+//				storage[amountOfPages][1]=compare(storage[0],val['v']['value'].match(/[^/]+$/));
 				
         });
         storage[0][0]='WeCompare';
