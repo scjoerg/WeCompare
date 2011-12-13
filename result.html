@@ -68,6 +68,7 @@ function loadResults() {
 		var attributes=new Array();
 		var storage=new Array();
 		storage[0]=new Array();
+	        storage[0][0]='WeCompare';
         $.each(data, function (key, val) {
             if (currentSite != val['site']['value']) {
                 currentSite = val['site']['value'];
@@ -102,7 +103,6 @@ function loadResults() {
 //				storage[amountOfPages][1]=compare(storage[0],val['v']['value'].match(/[^/]+$/));
 				
         });
-        storage[0][0]='WeCompare';
 
 //		print the arrays in a table
         items.push('<table  border="2" > <tr> ');
@@ -110,7 +110,12 @@ function loadResults() {
         var depth=0;
         while (depth < storage.length) {
 	        while (temp < storage[0].length) {
-	        	items.push('<th> '+storage[depth][temp]+' </th>');
+			if(typeof storage[depth][temp] == 'undefined') {
+				items.push('<th> - </th> ');
+			}
+			else {
+	        		items.push('<th> '+storage[depth][temp]+' </th>');
+			}
    	 	    	++temp;
 	   	    }
 	   	    items.push('</tr> <tr>');
