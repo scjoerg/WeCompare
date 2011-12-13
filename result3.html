@@ -1,0 +1,174 @@
+ <!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>weCompare - List</title>
+	<link href="wecomparestyle.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!-- Script stuff -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script src="http://rdfquery.googlecode.com/files/jquery.rdfquery.core.min-1.0.js"></script>
+<script src="common.js"></script>
+
+<!-- Our code -->
+<script>
+// global variables
+var sid = null
+
+Array.prototype.isKey = function(){ 
+  for(i in this){ 
+    if(i === arguments[0]) 
+      return true; 
+  }; 
+  return false; 
+}; 
+
+Array.prototype.isNotKey = function(){ 
+  for(i in this){ 
+    if(i === arguments[0]) 
+      return false; 
+  }; 
+  return true; 
+}; 
+
+Array.prototype.getPosition = function() {
+	var counter=0;
+	for (i in this) {
+		if(i == arguments[0]) {
+			return counter;
+		}
+		++counter;
+	}
+	return 999999;
+};
+
+function compare() {
+        var c=0;
+        for(i in arguments[0]) {
+                if(i == arguments[1]) {
+                        return c;
+                }
+                ++c;
+        }
+        return -1;
+}
+
+
+function loadResults() {
+    $.getJSON('http://arkania.dyndns.org/redstore/query?query=PREFIX+wc%3A+<http%3A%2F%2Fwecompare.ch%2F0.1%2F>%0D%0ASELECT+%3Fsite+%3Fv+%3Fo+WHERE+{%0D%0A+{wc%3A' + sid + '+wc%3Awebsite+%3Fsite}%0D%0A+{wc%3A' + sid + '+wc%3Atag+%3Ftag}%0D%0A+{%3Ftag+wc%3Awebsite+%3Fsite}%0D%0A+{%3Ftag+%3Fv+%3Fo}%0D%0A+FILTER+(%3Fsite+!%3D+%3Fo)%0D%0A}&lang=laqrs&format=json', function (data) {
+        data = data['results']
+        data = data['bindings']
+        var items = [];
+        var currentSite = '';
+		var valcount = 0;
+		var attributes = [];
+		var storage = new Object();
+        $.each(data, function (key, val) {
+<<<<<<< HEAD
+            if (currentSite != val['site']['value']) {
+                currentSite = val['site']['value'];
+//				storage[amountOfPages+1]=new Array();
+				storage[amountOfPages+1] = ( typeof storage[amountOfPages+1] != 'undefined' && storage[amountOfPages+1] instanceof Array ) ? storage[amountOfPages+1] : [];
+				storage[amountOfPages+1][0]='<a href="wecompare.html?s='+val['site']['value']+' ">' +val['site']['value']+ ' </a>';
+				amountOfPages=amountOfPages+1;
+				tempAmountOfValues=0;
+            };
+			tempAmountOfValues=tempAmountOfValues+1;
+			if(compare(storage[0],val['v']['value'].match(/[^/]+$/)) < 0) {
+//			if($.inArray(val['v']['value'].match(/[^/]+$/), storage[0]) < 0) {			
+//			if (storage[0].isNotKey(val['v']['value'].match(/[^/]+$/))) {
+				storage[0][storage[0].length]=val['v']['value'].match(/[^/]+$/);
+			};
+//			storage[amountOfPages][storage[0].getPosition(val['v']['value'].match(/[^/]+$/))]=val['o']['value'];
+//			storage[amountOfPages][$.inArray(val['v']['value'].match(/[^/]+$/), storage[0])]=val['o']['value'];
+			storage[amountOfPages][compare(storage[0],val['v']['value'].match(/[^/]+$/))]=val['o']['value'];
+			// debug, please remove following line
+//				storage[amountOfPages][1]=storage[0].getPosition(val['v']['value'].match(/[^/]+$/));
+//				storage[amountOfPages][1]=$.inArray(val['v']['value'].match(/[^/]+$/), storage[0]);
+				storage[amountOfPages][1]=compare(storage[0],val['v']['value'].match(/[^/]+$/));
+				
+=======
+		storage[val['site']['value']] = new Object();
+		storage[val['site']['value']][val['v']['value'].match(/[^/]+$/)] = val['o']['value'];
+>>>>>>> as object
+        });
+
+
+var output = '';
+for (property in storage) {
+	for (property2 in storage[property]) {
+	  output += property+'->'+property2 + ': ' + storage[property][property2]+'; ';
+	}
+}
+alert(output);
+
+//		print the arrays in a table
+        items.push('<table  border="2" > <tr> ');
+        var temp=0;
+        var depth=0;
+        while (depth < storage.length) {
+	        while (temp < storage[0].length) {
+	        	items.push('<th> '+storage[depth][temp]+' </th>');
+   	 	    	++temp;
+	   	    }
+	   	    items.push('</tr> <tr>');
+        	++depth;
+        	temp=0;
+        }
+        items.push('</tr></table>');
+        tempAmountOfValues=0;
+        items.push('<small> '+(storage[0].length-1)+' attributes on '+(storage.length-1)+' pages </small>');
+
+        
+        $('<ul/>', {
+            'class': 'my-new-list',
+            html: items.join('')
+        }).appendTo('#results');
+    });
+
+};
+
+
+
+//******************************* START
+$(document).ready(function () {
+
+
+    // if there is no session ID (neither in cookie or as param), generate one
+    sid = getCookie('wc_sid');
+    if (sid == null) {
+        if ($.QueryString['sid']) {
+            sid = $.QueryString['sid'];
+        } else {
+            sid = Math.uuid();
+        }
+        setCookie('wc_sid', sid, 10);
+    }
+    $("#debug").html(sid);
+
+
+    loadResults();
+});    
+    
+   </script>
+
+    <div style="width: 73%; height: 100%; left:0px; top: 0px; position:absolute;" class="frame">
+      <div id="oDiv" style="width: 100%; padding: 2px; "><span style="font-family: Helvetica, sans-serif;">Results</span></div>
+	<div id="results"> </div>
+    </div>
+    <div style=" width: 27%;height: 100%; right:0px; top:0px; position: absolute;" class="attributes">
+        <div style="padding-left: 2px; top: 30px; position: absolute; color: blue;">
+            <div style="border: 1px; padding: 5px; margin: 0px auto;">
+                    <div>
+                    </div>
+                <div id="tagslist">
+                </div>
+            </div>
+        </div>
+     <span style="font-size: 8pt; bottom: 0px; right: 2px; position: absolute;"><span id="debug"></span> $Id$</span>
+    </div>
+
+ </body>
+ </html>
