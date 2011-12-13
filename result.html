@@ -55,6 +55,12 @@ function compare() {
         return -1;
 }
 
+Array.prototype.has=function(v){
+for (i=0;i<this.length;i++){
+if (this[i]==v) return i;
+}
+return false;
+}
 
 function loadResults() {
     $.getJSON('http://arkania.dyndns.org/redstore/query?query=PREFIX+wc%3A+<http%3A%2F%2Fwecompare.ch%2F0.1%2F>%0D%0ASELECT+%3Fsite+%3Fv+%3Fo+WHERE+{%0D%0A+{wc%3A' + sid + '+wc%3Awebsite+%3Fsite}%0D%0A+{wc%3A' + sid + '+wc%3Atag+%3Ftag}%0D%0A+{%3Ftag+wc%3Awebsite+%3Fsite}%0D%0A+{%3Ftag+%3Fv+%3Fo}%0D%0A+FILTER+(%3Fsite+!%3D+%3Fo)%0D%0A}&lang=laqrs&format=json', function (data) {
@@ -83,24 +89,16 @@ function loadResults() {
 			var b=0;
 			var position=0;
 			while (i < storage[0].length) {
-				if(storage[0][i] == val['v']['value'].match(/[^/]+$/)) {
+				if( storage[0][i] == val['v']['value'].match(/[^/]+$/).toString()) {
 					b=1;
 					position=i;
 				}
 				++i;
 			}
 			if(b == 0) {
-//			if($.inArray(val['v']['value'].match(/[^/]+$/), storage[0]) < 0) {			
-//			if (storage[0].isNotKey(val['v']['value'].match(/[^/]+$/))) {
 				storage[0][storage[0].length]=val['v']['value'].match(/[^/]+$/);
 			};
-//			storage[amountOfPages][storage[0].getPosition(val['v']['value'].match(/[^/]+$/))]=val['o']['value'];
-//			storage[amountOfPages][$.inArray(val['v']['value'].match(/[^/]+$/), storage[0])]=val['o']['value'];
 			storage[amountOfPages][i]=val['o']['value'];
-			// debug, please remove following line
-//				storage[amountOfPages][1]=storage[0].getPosition(val['v']['value'].match(/[^/]+$/));
-//				storage[amountOfPages][1]=$.inArray(val['v']['value'].match(/[^/]+$/), storage[0]);
-//				storage[amountOfPages][1]=compare(storage[0],val['v']['value'].match(/[^/]+$/));
 				
         });
 
