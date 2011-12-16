@@ -15,14 +15,15 @@
 <script>
    // global variables
    var counter = 1;
+   var identifier = 1;
    var limit = 10;
-   var titlesTag = [];
+   var titlesTag = [''];
    var maxTitleLength = 30;
    var sid = null;
    var firstSite = 'www.unifr.ch';
 
    function GetTitles() {
-    	websiteurl = document.getElementById('oFrame').src;
+    	var websiteurl = document.getElementById('oFrame').src;
 
 	if(websiteurl.charAt(websiteurl.length -1) == "/") {
 		websiteurl = websiteurl.substring(0, websiteurl.length-1);
@@ -38,6 +39,72 @@
 
    }
 
+   function BlockTitles(number) {
+	for(i = 1; i<document.getElementById("selectList" + number).options.length; i++) {
+		document.getElementById("selectList" + number).options[i].disabled="";
+	}
+
+	document.getElementById("selectList" + number).options[0].disabled="true";
+
+	for(i = 1; i <= identifier; i++) {
+		if ($(document.getElementById("selectList" + i)).length > 0){
+			if(i != number) {
+				var value = document.getElementById("selectList" + i).value;
+				$("#selectList" + number + " option[value="+value+"]").attr("disabled", "disabled");
+			}
+		}
+	}
+   }
+   
+   function EmptyElement() {
+	for(i = 1; i <= identifier; i++) {
+		if ($(document.getElementById("selectList" + i)).length > 0){
+			if(document.getElementById("selectList" + i).selectedIndex == 0) {
+				return true;
+			}
+			var content = document.getElementById("textarea" + i).value.trim();
+			if(content.length == 0) {
+				return true;
+			}
+		}
+	}
+	return false;
+   }
+
+   function ChangeContent(number) {
+	$(document.getElementById("textarea" + number)).val('');
+	var websiteurl = document.getElementById('oFrame').src;
+	var title = document.getElementById("selectList" + number).value;
+
+	if(websiteurl.charAt(websiteurl.length -1) == "/") {
+		websiteurl = websiteurl.substring(0, websiteurl.length-1);
+	}
+
+	$.getJSON('http://arkania.dyndns.org:9898/query?query=PREFIX+wc%3A+%3Chttp%3A%2F%2Fwecompare.ch%2F0.1%2F%3E%0D%0APREFIX+title%3A+%3Chttp%3A%2F%2Fschema.org%2F0.9%2F%3E%0D%0A%0D%0ASELECT+DISTINCT+%3Fcontent+WHERE+%7B%0D%0A++%3Ftagident+wc%3Awebsite+%22' + websiteurl + '%2F%22+.%0D%0A++%3Ftagident+title%3A' + title + '+%3Fcontent%0D%0A%7D&lang=laqrs&format=json', function (data) {
+		data = data['results'];
+		data = data['bindings'];
+		var last = 0;
+		$.each(data, function (key, val) {
+			last = key;
+        	});
+		$(document.getElementById("textarea" + number)).val(data[last].content.value);
+	});
+   }
+
+   function DeleteTag(number) {
+       //alert(number);
+       /*if ($(document.getElementById("deleteButton" + number)).length > 0){
+	  alert("Here");
+       }*/
+       $(document.getElementById("deleteButton" + number)).parent().remove();
+       counter--;
+       if (counter <= limit)
+       		$('#addtagbutton').attr('disabled','');
+       /*if ($(document.getElementById("deleteButton" + number)).length > 0){
+	  alert("Still here");
+       }*/
+   }
+
    function AddNewTag(title, txtvalue) {
        var newdiv = document.createElement('div');
        newdiv.className = "row";
@@ -47,17 +114,19 @@
        newdiv.appendChild(newspan);
 
        var selectList = document.createElement('select');
-       selectList.setAttribute('name', 'selectList' + counter);
-       selectList.setAttribute('id', 'selectList' + counter);
+       selectList.setAttribute('name', 'selectList' + identifier);
+       selectList.setAttribute('id', 'selectList' + identifier);
+       selectList.setAttribute('onChange', "ChangeContent('" + identifier + "')");
+       selectList.setAttribute('onMouseDown', "BlockTitles('" + identifier + "')");
 
        if (title != undefined) {
            var option = document.createElement('option');
            option.value = title;
            option.text = title; 
            selectList.appendChild(option);
-      }
+       }
 
-      selectList.style.width = "180px";
+       selectList.style.width = "180px";
        for (var i = 0; i < titlesTag.length; i++) {
            var option = document.createElement('option');
            option.value = titlesTag[i];
@@ -68,16 +137,24 @@
 
        var newTitleButton = document.createElement('input');
        newTitleButton.setAttribute('type', 'button');
-       newTitleButton.setAttribute('name', 'titleButton' + counter);
-       newTitleButton.setAttribute('id', 'titleButton' + counter);
+       newTitleButton.setAttribute('name', 'titleButton' + identifier);
+       newTitleButton.setAttribute('id', 'titleButton' + identifier);
        newTitleButton.setAttribute('value', 'other tag name');
-       newTitleButton.setAttribute('onClick', "AddTitleToSelectList('" + counter + "')");
+       newTitleButton.setAttribute('onClick', "AddTitleToSelectList('" + identifier + "')");
        newdiv.appendChild(newTitleButton);
 
+       var newDeleteButton = document.createElement('input');
+       newDeleteButton.setAttribute('type', 'button');
+       newDeleteButton.setAttribute('name', 'deleteButton' + identifier);
+       newDeleteButton.setAttribute('id', 'deleteButton' + identifier);
+       newDeleteButton.setAttribute('value', 'delete tag');
+       newDeleteButton.setAttribute('onClick', "DeleteTag('" + identifier + "')");
+       newdiv.appendChild(newDeleteButton);
+
        var newtextarea = document.createElement('textarea');
-       newtextarea.setAttribute("name", 'textarea' + counter);
-       newtextarea.setAttribute("id", 'textarea' + counter);
-       newtextarea.setAttribute("cols", "37");
+       newtextarea.setAttribute("name", 'textarea' + identifier);
+       newtextarea.setAttribute("id", 'textarea' + identifier);
+       newtextarea.setAttribute("cols", "42");
        newtextarea.setAttribute("rows", "4");
        if(txtvalue != undefined) {
 		newtextarea.value = txtvalue;	
@@ -85,7 +162,10 @@
        newdiv.appendChild(newtextarea);
 
        document.getElementById("tagslist").appendChild(newdiv);
+       identifier++;
        counter++;
+       if (counter > limit)
+       		$('#addtagbutton').attr('disabled','disabled');
    }
 
 
@@ -124,16 +204,18 @@
    }
 
    function saveAttributes() {
-       // just some test rdf stuff
+	// just some test rdf stuff
        websiteurl = document.getElementById('oFrame').src;
        var website = $.rdf.databank().prefix('dc', 'http://purl.org/dc/elements/1.1/').prefix('dct', 'http://purl.org/dc/terms/').prefix('xsd', 'http://www.w3.org/2001/XMLSchema#').prefix('wc', 'http://wecompare.ch/0.1/').prefix('sma', 'http://schema.org/0.9/').add('wc:' + sid + ' wc:website "' + websiteurl + '" .');
 
-       for (var i = 1; i < counter; ++i) {
-           if ( $('#textarea'+i).val() != '' ) {
-               website.add('wc:' + sid + ' wc:tag _:tag' + i + ' .');
-               website.add('_:tag' + i + ' wc:website "' + websiteurl + '" .');
-               website.add('_:tag' + i + ' sma:' + $('#selectList' + i).val() + ' "' + $('#textarea' + i).val() + '" .');
-           }
+       for (var i = 1; i < identifier; ++i) {
+	   if ($(document.getElementById("textarea" + i)).length > 0) {
+           	if ( $('#textarea'+i).val() != '' ) {
+               		website.add('wc:' + sid + ' wc:tag _:tag' + i + ' .');
+               		website.add('_:tag' + i + ' wc:website "' + websiteurl + '" .');
+               		website.add('_:tag' + i + ' sma:' + $('#selectList' + i).val() + ' "' + $('#textarea' + i).val() + '" .');
+           	}
+	   }
        }
 
        return website;
@@ -171,7 +253,7 @@
 
    function clear_tags() {
        $('#tagslist').empty();
-       counter = 0;
+       counter = 1;
    }
 
    function get_tags(url) {
@@ -196,8 +278,10 @@
            success: function () {
                //alert('Data successfully saved.');
                $("#debug").html('Data successfully saved.');
-               for (var i = 1; i < counter; ++i) {
-                   $('#textarea' + i).val('');
+               for (var i = 1; i < identifier; ++i) {
+                   if ($(document.getElementById("textarea" + i)).length > 0) {
+			$('#textarea' + i).val('');
+		   }
                }
            },
            data: rdf_data.dump({
@@ -239,11 +323,17 @@
            if (event.which == 13) {
                event.preventDefault();
                loadnewsite();
+	       for (var i = 1; i < identifier; ++i) {
+                   if ($(document.getElementById("textarea" + i)).length > 0) {
+			$('#textarea' + i).val('');
+			ChangeContent(i);
+		   }
+               }
            }
        });
 
        $("#savebutton").click(function () {
-           website = saveAttributes();
+	   website = saveAttributes();
            save_rdf(website);
        });
 
@@ -257,11 +347,11 @@
 	   clear_tags();
        });
        $("#addtagbutton").click(function () {
-           if (counter > limit) {
-               alert("You have reached the limit of adding " + counter + " tags");
-           } else {
+           //if (counter > limit) {
+               //alert("You have reached the limit of adding " + limit + " tags");
+           //} else {
                AddNewTag();
-           }
+           //}
        });
    });
     
