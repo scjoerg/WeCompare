@@ -187,18 +187,29 @@
        newTitleTextArea.onkeypress = function (e) {
            if (e.keyCode == 13) {
                e.preventDefault();
+		
                if (this.value.length > maxTitleLength) {
-                   alert("The new title is too long! Do not exceed " + maxTitleLength + " characters please!");
-               } else {
-                   if (this.value.length > 0) {
-                       var theSelectList = document.getElementById("selectList" + number);
-                       var myNewOption = new Option(this.value, this.value);
-                       var optsLen = theSelectList.options.length;
-                       theSelectList.options[optsLen] = myNewOption;
-                       theSelectList.selectedIndex = optsLen;
-                   }
-                   $(this).remove();
-               }
+               		alert("The new title is too long! Do not exceed " + maxTitleLength + " characters please!");
+               } 
+	       else {
+               		if (this.value.length > 0) {
+				var content = this.value.trim();
+				if(content.length == 0) {
+					alert("Title not accepted!");
+				}
+				else {
+               				var theSelectList = document.getElementById("selectList" + number);
+                       			var myNewOption = new Option(this.value, this.value);
+                       			var optsLen = theSelectList.options.length;
+                       			theSelectList.options[optsLen] = myNewOption;
+                       			theSelectList.selectedIndex = optsLen;
+					$(this).remove();
+				}
+                   	}
+			else {
+	                   	$(this).remove();
+			}
+               	}
            }
        };
    }
