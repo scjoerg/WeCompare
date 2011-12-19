@@ -95,23 +95,47 @@ function loadResults() {
 		mygrid = new dhtmlXGridObject('mygrid_container');
 
 		temp=0;
-		str="";
+		var heading="";
+		var lengthstring="";
 		while (temp < storage[0].length) {
-			str+=storage[0][temp];
-			if (temp != storage[0].length-1) {
-				str+=", ";
+			lengthstring+="200";
+			heading=heading+storage[0][temp];
+			if (temp != (storage[0].length-1)) {
+				heading=heading+",";
+				lengthstring+=",";
 			}
 			++temp;
 		}
 		mygrid.setImagePath("codebase/imgs/");
-        mygrid.setHeader(str);
-        mygrid.setInitWidths("*,400,400");
+     //   mygrid.setHeader(heading.toString());
+     	mygrid.setHeader(heading);
+        mygrid.setInitWidths(lengthstring);
         mygrid.setColAlign("left,right,right");
 	    mygrid.setSkin("light");
 	    mygrid.init();
 
-
-
+	temp=0;
+	depth=1;
+	var data="";
+	while (depth < storage.length) {
+		data="";
+		temp=0;
+		while ( temp<storage[0].length) {
+			if(typeof storage[depth][temp] == 'undefined') {
+				data+="-"
+			}
+			else {
+				data+=storage[depth][temp];
+			}
+			if(temp != storage[0].length-1) {
+				data+=",";
+			}
+			++temp;
+		}
+		var newId = (new Date()).valueOf();
+	        mygrid.addRow(newId,data,mygrid.getRowsNum());
+		++depth;
+	}
         $('<ul/>', {
             'class': 'my-new-list',
             html: items.join('')
