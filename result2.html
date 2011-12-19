@@ -98,6 +98,9 @@ function loadResults() {
 		str="";
 		while (temp < storage[0].length) {
 			str+=storage[0][temp];
+			if (temp != storage[0].length-1) {
+				str+=", ";
+			}
 			++temp;
 		}
 		mygrid.setImagePath("codebase/imgs/");
@@ -152,7 +155,8 @@ $(document).ready(function () {
                     </div>
                 <div id="tagslist">
                 </div>
-				<div id="mygrid_container" style="width:600px;height:150px;"></div>
+				<br /> <br />
+				<div id="mygrid_container" style="width:600px;height:600px;"></div>
             </div>
         </div>
      <span style="font-size: 8pt; bottom: 0px; right: 2px; position: absolute;"><span id="debug"></span> $Id$</span>
