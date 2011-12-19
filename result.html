@@ -6,6 +6,12 @@
 	<title>weCompare - List</title>
 	<link href="wecomparestyle.css" rel="stylesheet" type="text/css" />
 	 <script src="codebase/dhtmlxgrid_std.js" type="text/javascript"></script>
+
+<link rel="STYLESHEET" type="text/css" href="codebase/dhtmlxgrid.css">
+    <script src="codebase/dhtmlxcommon.js"></script>
+	    <script src="codebase/dhtmlxgrid.js"></script>
+		    <script src="codebase/dhtmlxgridcell.js"></script>
+
 	 <script>
 	         function buildInterface(){
 			             //entire code for interface init will go here
@@ -84,7 +90,18 @@ function loadResults() {
         tempAmountOfValues=0;
         items.push('<small> '+(storage[0].length-1)+' attributes on '+(storage.length-1)+' pages </small>');
 
-        
+ 
+		var mygrid;
+		mygrid = new dhtmlXGridObject('mygrid_container');
+		mygrid.setImagePath("codebase/imgs/");
+        mygrid.setHeader("Model,Qty,Price");
+        mygrid.setInitWidths("*,150,150");
+        mygrid.setColAlign("left,right,right");
+	    mygrid.setSkin("light");
+	    mygrid.init();
+
+
+
         $('<ul/>', {
             'class': 'my-new-list',
             html: items.join('')
@@ -128,6 +145,9 @@ $(document).ready(function () {
                     </div>
                 <div id="tagslist">
                 </div>
+				<br />
+				<br />
+				<div id="mygrid_container" style="width:600px;height:150px;"></div>
             </div>
         </div>
      <span style="font-size: 8pt; bottom: 0px; right: 2px; position: absolute;"><span id="debug"></span> $Id$</span>
