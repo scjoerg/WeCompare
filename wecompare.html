@@ -67,24 +67,28 @@
 	return false;
    }
 
-   function ChangeContent(number) {
-	$(document.getElementById("textarea" + number)).val('');
-	var websiteurl = document.getElementById('oFrame').src;
-	var title = document.getElementById("selectList" + number).value;
+   function ChangeContent(number) 
+	var content = document.getElementById("textarea" + number)).val('');
+	content = content.trim();
+	if (content.length == 0) {
+		$(document.getElementById("textarea" + number)).val('');
+		var websiteurl = document.getElementById('oFrame').src;
+		var title = document.getElementById("selectList" + number).value;
 
-	if(websiteurl.charAt(websiteurl.length -1) == "/") {
-		websiteurl = websiteurl.substring(0, websiteurl.length-1);
+		if(websiteurl.charAt(websiteurl.length -1) == "/") {
+			websiteurl = websiteurl.substring(0, websiteurl.length-1);
+		}
+
+		$.getJSON('http://www.wecompare.ch/redstore/query?query=PREFIX+wc%3A+%3Chttp%3A%2F%2Fwecompare.ch%2F0.1%2F%3E%0D%0APREFIX+title%3A+%3Chttp%3A%2F%2Fschema.org%2F0.9%2F%3E%0D%0A%0D%0ASELECT+DISTINCT+%3Fcontent+WHERE+%7B%0D%0A++%3Ftagident+wc%3Awebsite+%22' + websiteurl + '%2F%22+.%0D%0A++%3Ftagident+title%3A' + title + '+%3Fcontent%0D%0A%7D&lang=laqrs&format=json', function (data) {
+			data = data['results'];
+			data = data['bindings'];
+			var last = 0;
+			$.each(data, function (key, val) {
+				last = key;
+			});
+			$(document.getElementById("textarea" + number)).val(data[last].content.value);
+		});
 	}
-
-	$.getJSON('http://www.wecompare.ch/redstore/query?query=PREFIX+wc%3A+%3Chttp%3A%2F%2Fwecompare.ch%2F0.1%2F%3E%0D%0APREFIX+title%3A+%3Chttp%3A%2F%2Fschema.org%2F0.9%2F%3E%0D%0A%0D%0ASELECT+DISTINCT+%3Fcontent+WHERE+%7B%0D%0A++%3Ftagident+wc%3Awebsite+%22' + websiteurl + '%2F%22+.%0D%0A++%3Ftagident+title%3A' + title + '+%3Fcontent%0D%0A%7D&lang=laqrs&format=json', function (data) {
-		data = data['results'];
-		data = data['bindings'];
-		var last = 0;
-		$.each(data, function (key, val) {
-			last = key;
-        	});
-		$(document.getElementById("textarea" + number)).val(data[last].content.value);
-	});
    }
 
    function DeleteTag(number) {
