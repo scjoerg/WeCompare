@@ -1,0 +1,9 @@
+The main page allows you to enter the website you want to use for your comparison.
+
+Once this is done, you have an interface with your website in a browser on the left, from which you can get your information, and the information retrieval part on the right.
+You also can change the website URL in the text area above of the browser.
+
+The information retrieval part allows you to open a limited amount of tags. Each of these tags has to have a title; you can choose an already existing one or create a new one.
+The system works with a database; if some content already exists for a given title for the current webpage, it will be automatically displayed in the tag. You can modify it if you want. Once you are done with the current website, you can open a new one or launch the comparison interface.
+
+In the comparison interface, you will have all of your tags in an array to ease the comparison between each tags having the same title.
