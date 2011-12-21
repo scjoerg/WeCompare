@@ -21,7 +21,7 @@
 <script>
 // global variables
 var sid = null
-dhtmlx.skin = "dhx_skyblue";
+dhtmlx.skin = "xp";
 
 function loadResults() {
     $.getJSON('http://www.wecompare.ch/redstore/query?query=PREFIX+wc%3A+<http%3A%2F%2Fwecompare.ch%2F0.1%2F>%0D%0ASELECT+%3Fsite+%3Fv+%3Fo+WHERE+{%0D%0A+{wc%3A' + sid + '+wc%3Awebsite+%3Fsite}%0D%0A+{wc%3A' + sid + '+wc%3Atag+%3Ftag}%0D%0A+{%3Ftag+wc%3Awebsite+%3Fsite}%0D%0A+{%3Ftag+%3Fv+%3Fo}%0D%0A+FILTER+(%3Fsite+!%3D+%3Fo)%0D%0A}&lang=laqrs&format=json', function (data) {
@@ -62,7 +62,7 @@ function loadResults() {
         });
 
 //		print the arrays in a table
-        items.push('<table id="tblResult" name="grid1" gridHeight="auto" style="width:400px" imgpath="codebase/imgs/" border="1" lightnavigation="true"> <tr> ');
+        items.push('<table id="tblResult" name="grid1" gridWidth="100%" gridHeight="auto" style="width:80%;" imgpath="codebase/imgs/" border="1" lightnavigation="true"> <tr> ');
         var temp=0;
         var depth=0;
         while (depth < storage.length) {
@@ -85,7 +85,7 @@ function loadResults() {
 
  
         $('<div/>', {
-            'class': 'my-new-list',
+            'width': '100%',
             html: items.join('')
         }).appendTo('#results');
 
@@ -125,7 +125,7 @@ $(document).ready(function () {
 
     <div style="width: 73%; height: 100%; left:0px; top: 0px; position:absolute;" class="frame">
 	<img id="title" src="images/results/results.gif" width="333" style="margin-top: 30px;" /> <br />
-	<div style="position: absolute; left: 20px" id="results">
+	<div style="position: absolute; left: 20px; width=100%" id="results">
 	</div>
 	<span style="font-size: 8pt; bottom: 0px; right: 2px; position: absolute;"><span id="debug"></span> $Id$</span>
     </div>
