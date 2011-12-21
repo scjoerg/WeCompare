@@ -52,13 +52,14 @@ function loadResults() {
 			if( storage[0][i] == val['v']['value'].match(/[^/]+$/).toString()) {
 				b=1;
 				position=i;
+				break;
 			}
 			++i;
 		}
 		if(b == 0) {
 			storage[0][storage[0].length]=val['v']['value'].match(/[^/]+$/);
 		};
-		storage[amountOfPages][i]=val['o']['value'];		
+		storage[amountOfPages][i]=val['o']['value'].toString();		
         });
 
 //		print the arrays in a table
