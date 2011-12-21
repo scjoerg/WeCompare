@@ -56,14 +56,10 @@
 	}
    }
    
-   function EmptyElement() {
+   function isEmptyElement() {
 	for(i = 1; i <= identifier; i++) {
 		if ($(document.getElementById("selectList" + i)).length > 0){
 			if(document.getElementById("selectList" + i).selectedIndex == 0) {
-				return true;
-			}
-			var content = document.getElementById("textarea" + i).value.trim();
-			if(content.length == 0) {
 				return true;
 			}
 		}
@@ -302,6 +298,15 @@
        });
    }
 
+   function save() {
+	if(isEmptyElement()) {alert("Every tag needs to have a title! Dude."); return false;}	
+	else {
+           save_rdf(saveAttributes());
+	   return true;
+	}
+	
+	}
+
    //******************************* START
    $(document).ready(function () {
 
@@ -333,19 +338,20 @@
        $("#urlinput").keypress(function (event) {
            if (event.which == 13) {
                event.preventDefault();
+	       if(save()) {
                loadnewsite();
 	       for (var i = 1; i < identifier; ++i) {
                    if ($(document.getElementById("textarea" + i)).length > 0) {
 			$('#textarea' + i).val('');
 			ChangeContent(i);
 		   }
+		}
                }
            }
        });
 
        $("#savebutton").click(function () {
-	   website = saveAttributes();
-           save_rdf(website);
+	   save();
        });
 
        $("#newcomparebutton").click(function () {

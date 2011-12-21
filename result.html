@@ -68,7 +68,7 @@ function loadResults() {
         while (depth < storage.length) {
 	        while (temp < storage[0].length) {
 			if(typeof storage[depth][temp] == 'undefined') {
-				items.push('<td> - </td> ');
+				items.push('<td></td> ');
 			}
 			else {
 	        		items.push('<td> '+storage[depth][temp]+' </td>');
@@ -119,14 +119,31 @@ $(document).ready(function () {
 
     loadResults();
 
+
+       $("#newcomparebutton").click(function () {
+           sid = Math.uuid();
+           setCookie('wc_sid', sid, 10);
+           $("#debug").html(sid);
+	   location.href='wecompare.html';
+       });
+
+
+
 });    
     
    </script>
 
     <div style="width: 73%; height: 100%; left:0px; top: 0px; position:absolute;" class="frame">
 	<img id="title" src="images/results/results.gif" width="333" style="margin-top: 30px;" /> <br />
-	<div style="position: absolute; left: 20px; width=100%" id="results">
+	<div style="margin-left: 20px; width=100%" id="results">
 	</div>
+
+	<div style="margin-left: 20px; width=100%">
+                        <button id="newcomparebutton" name="save">
+                            start new comparision
+                        </button>
+	</div>
+
 	<span style="font-size: 8pt; bottom: 0px; right: 2px; position: absolute;"><span id="debug"></span> $Id$</span>
     </div>
 </body>
