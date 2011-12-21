@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:creation-date>2011-11-16T13:42:26</meta:creation-date><dc:date>2011-12-21T13:27:48</dc:date><meta:editing-duration>PT1H32M37S</meta:editing-duration><meta:editing-cycles>16</meta:editing-cycles><meta:generator>LibreOffice/3.4$Unix LibreOffice_project/340m1$Build-203</meta:generator><dc:title>Project report</dc:title><meta:document-statistic meta:character-count="7448" meta:image-count="6" meta:non-whitespace-character-count="6142" meta:object-count="0" meta:page-count="5" meta:paragraph-count="43" meta:table-count="0" meta:word-count="1347"/><meta:user-defined meta:name="Author">Jörg, Mariusz, Michael</meta:user-defined></office:meta>
+ <office:meta><meta:creation-date>2011-11-16T13:42:26</meta:creation-date><dc:date>2011-12-21T22:09:38</dc:date><meta:editing-duration>PT2H40M18S</meta:editing-duration><meta:editing-cycles>17</meta:editing-cycles><meta:generator>LibreOffice/3.4$Linux LibreOffice_project/340m1$Build-402</meta:generator><dc:title>Project report</dc:title><meta:document-statistic meta:table-count="0" meta:image-count="6" meta:object-count="0" meta:page-count="7" meta:paragraph-count="47" meta:word-count="1609" meta:character-count="8849" meta:non-whitespace-character-count="7284"/><dc:creator>Mariusz Wisniewski</dc:creator><meta:user-defined meta:name="Author">Jörg, Mariusz, Michael</meta:user-defined></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="int">0</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="int">157480</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="int">0</config:config-item>
-   <config:config-item config:name="ViewAreaWidth" config:type="int">27875</config:config-item>
-   <config:config-item config:name="ViewAreaHeight" config:type="int">14402</config:config-item>
+   <config:config-item config:name="ViewAreaWidth" config:type="int">36858</config:config-item>
+   <config:config-item config:name="ViewAreaHeight" config:type="int">17597</config:config-item>
    <config:config-item config:name="ShowRedlineChanges" config:type="boolean">true</config:config-item>
    <config:config-item config:name="InBrowseMode" config:type="boolean">false</config:config-item>
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="int">5436</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="int">3425</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="int">22592</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="int">162592</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="int">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="int">0</config:config-item>
-     <config:config-item config:name="VisibleRight" config:type="int">27873</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="int">14400</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="int">157480</config:config-item>
+     <config:config-item config:name="VisibleRight" config:type="int">36856</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="int">175075</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
@@ -97,7 +97,9 @@
  </office:settings>
  <office:scripts>
   <office:script script:language="ooo:Basic">
-   <ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+   <ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <ooo:library-embedded ooo:name="Standard"/>
+   </ooo:libraries>
   </office:script>
  </office:scripts>
  <office:font-face-decls>
@@ -301,28 +303,31 @@
   <style:style style:name="P14" style:family="paragraph" style:parent-style-name="Heading_20_2">
    <style:paragraph-properties fo:break-before="page"/>
   </style:style>
-  <style:style style:name="P15" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="">
-   <style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
-   <style:text-properties fo:font-size="14pt" fo:language="en" fo:country="US" style:font-size-asian="14pt" style:font-size-complex="14pt"/>
-  </style:style>
-  <style:style style:name="P16" style:family="paragraph" style:parent-style-name="Heading_20_1">
+  <style:style style:name="P15" style:family="paragraph" style:parent-style-name="Heading_20_1">
    <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
   </style:style>
-  <style:style style:name="P17" style:family="paragraph" style:parent-style-name="Heading_20_1">
+  <style:style style:name="P16" style:family="paragraph" style:parent-style-name="Heading_20_1">
    <style:paragraph-properties fo:text-align="start" style:justify-single-word="false"/>
    <style:text-properties fo:language="en" fo:country="US" style:language-complex="en" style:country-complex="US"/>
   </style:style>
-  <style:style style:name="P18" style:family="paragraph" style:parent-style-name="Heading_20_1" style:master-page-name="First_20_Page">
+  <style:style style:name="P17" style:family="paragraph" style:parent-style-name="Heading_20_1" style:master-page-name="First_20_Page">
    <style:paragraph-properties style:page-number="auto"/>
   </style:style>
-  <style:style style:name="P19" style:family="paragraph" style:parent-style-name="Heading_20_1" style:master-page-name="">
+  <style:style style:name="P18" style:family="paragraph" style:parent-style-name="Heading_20_1" style:master-page-name="">
    <style:paragraph-properties fo:margin-top="0.423cm" fo:margin-bottom="0.212cm" fo:text-align="center" style:justify-single-word="false" style:page-number="auto" fo:keep-with-next="always">
     <style:tab-stops/>
    </style:paragraph-properties>
    <style:text-properties style:font-name-asian="Arial Unicode MS" style:font-name-complex="Arial Unicode MS"/>
   </style:style>
-  <style:style style:name="P20" style:family="paragraph" style:parent-style-name="Heading_20_2">
+  <style:style style:name="P19" style:family="paragraph" style:parent-style-name="Heading_20_2">
    <style:paragraph-properties fo:break-before="page"/>
+  </style:style>
+  <style:style style:name="P20" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="">
+   <style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
+   <style:text-properties fo:font-size="14pt" fo:language="en" fo:country="US" style:font-size-asian="14pt" style:font-size-complex="14pt"/>
+  </style:style>
+  <style:style style:name="P21" style:family="paragraph" style:parent-style-name="Standard">
+   <style:text-properties fo:language="en" fo:country="US" style:language-complex="en" style:country-complex="US"/>
   </style:style>
   <style:style style:name="T1" style:family="text">
    <style:text-properties fo:language="en" fo:country="US"/>
@@ -369,7 +374,7 @@
   <number:number-style style:name="N0">
    <number:number number:min-integer-digits="1"/>
   </number:number-style>
-  <number:date-style style:name="N106">
+  <number:date-style style:name="N108">
    <number:month number:style="long" number:textual="true"/>
    <number:text> </number:text>
    <number:year number:style="long"/>
@@ -378,7 +383,7 @@
  <office:master-styles>
   <style:master-page style:name="Standard" style:page-layout-name="pm1">
    <style:header>
-    <text:p text:style-name="Header"><draw:frame draw:style-name="fr1" draw:name="graphics2" text:anchor-type="paragraph" svg:width="3.764cm" svg:height="0.96cm" draw:z-index="4"><draw:image>
+    <text:p text:style-name="Header"><draw:frame draw:style-name="fr1" draw:name="graphics2" text:anchor-type="paragraph" svg:width="3.764cm" svg:height="0.96cm" draw:z-index="5"><draw:image>
        <office:binary-data>R0lGODlh6QcEAucAAAAAAAEBAQICAgMDAwQEBAUFBQYGBgcHBwgICAkJCQoKCgsLCwwMDA0N
         DQ4ODg8PDxAQEBERERISEhMTExQUFBUVFRYWFhcXFxgYGBkZGRoaGhsbGxwcHB0dHR4eHh8f
         HyAgICEhISIiIiMjIyQkJCUlJSYmJicnJygoKCkpKSoqKisrKywsLC0tLS4uLi8vLzAwMDEx
@@ -2790,7 +2795,7 @@
     <text:p text:style-name="P1"/>
    </style:header>
    <style:footer>
-    <text:p text:style-name="P2"><text:user-defined style:data-style-name="N0" text:name="Author">Jörg, Mariusz, Michael</text:user-defined><text:tab/><text:page-number text:select-page="current">6</text:page-number> | <text:page-count>6</text:page-count><text:tab/><text:date style:data-style-name="N106" text:date-value="2011-12-21T20:59:07.99">Dezember 2011</text:date></text:p>
+    <text:p text:style-name="P2"><text:user-defined style:data-style-name="N0" text:name="Author">Jörg, Mariusz, Michael</text:user-defined><text:tab/><text:page-number text:select-page="current">6</text:page-number> | <text:page-count>7</text:page-count><text:tab/><text:date style:data-style-name="N108" text:date-value="2011-12-21T22:09:37.99">Dezember 2011</text:date></text:p>
    </style:footer>
   </style:master-page>
   <style:master-page style:name="First_20_Page" style:display-name="First Page" style:page-layout-name="pm2" style:next-style-name="Standard"/>
@@ -2804,11 +2809,11 @@
     <text:sequence-decl text:display-outline-level="0" text:name="Text"/>
     <text:sequence-decl text:display-outline-level="0" text:name="Drawing"/>
    </text:sequence-decls>
-   <text:h text:style-name="P18" text:outline-level="1"/>
+   <text:h text:style-name="P17" text:outline-level="1"/>
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="Text_20_body"/>
-   <text:p text:style-name="Text_20_body"><draw:frame draw:style-name="fr2" draw:name="graphics4" text:anchor-type="paragraph" svg:x="0.554cm" svg:y="0.307cm" svg:width="15.702cm" svg:height="3.999cm" draw:z-index="6"><draw:image>
+   <text:p text:style-name="Text_20_body"><draw:frame draw:style-name="fr2" draw:name="graphics4" text:anchor-type="paragraph" svg:x="0.554cm" svg:y="0.307cm" svg:width="15.702cm" svg:height="3.999cm" draw:z-index="7"><draw:image>
       <office:binary-data>R0lGODlh6QcEAucAAAAAAAEBAQICAgMDAwQEBAUFBQYGBgcHBwgICAkJCQoKCgsLCwwMDA0N
        DQ4ODg8PDxAQEBERERISEhMTExQUFBUVFRYWFhcXFxgYGBkZGRoaGhsbGxwcHB0dHR4eHh8f
        HyAgICEhISIiIiMjIyQkJCUlJSYmJicnJygoKCkpKSoqKisrKywsLC0tLS4uLi8vLzAwMDEx
@@ -5220,7 +5225,7 @@
    <text:p text:style-name="Text_20_body"/>
    <text:h text:style-name="P10" text:outline-level="1">Project Report</text:h>
    <text:p text:style-name="P9">About</text:p>
-   <text:h text:style-name="P13" text:outline-level="1">WeComare.ch</text:h>
+   <text:h text:style-name="P13" text:outline-level="1">WeCompare.ch</text:h>
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="Text_20_body"/>
@@ -5237,12 +5242,12 @@
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="Text_20_body"/>
-   <text:p text:style-name="P8">Michael Luggen<text:line-break/>Jörg Schenker<text:line-break/>Mariusz Wisniewski</text:p>
-   <text:h text:style-name="P15" text:outline-level="2"/>
-   <text:h text:style-name="P15" text:outline-level="2"><text:soft-page-break/></text:h>
-   <text:h text:style-name="P15" text:outline-level="2">Universities of Fribourg, Neuchatel, Bern, <text:date style:data-style-name="N106" text:date-value="2011-12-21T20:58:27.99" text:fixed="true">December 2011</text:date></text:h>
+   <text:p text:style-name="P8">Michael Luggen<text:line-break/><text:soft-page-break/>Jörg Schenker<text:line-break/>Mariusz Wisniewski</text:p>
+   <text:h text:style-name="P20" text:outline-level="2"/>
+   <text:h text:style-name="P20" text:outline-level="2"/>
+   <text:h text:style-name="P20" text:outline-level="2">Universities of Fribourg, Neuchatel, Bern, <text:date style:data-style-name="N108" text:date-value="2011-12-21T20:58:27.99" text:fixed="true">December 2011</text:date></text:h>
    <text:h text:style-name="P14" text:outline-level="2">Idea</text:h>
-   <text:p text:style-name="P6"><draw:frame draw:style-name="fr3" draw:name="graphics3" text:anchor-type="paragraph" svg:x="8.781cm" svg:y="1.012cm" svg:width="8.19cm" svg:height="4.556cm" draw:z-index="5"><draw:image>
+   <text:p text:style-name="P6"><draw:frame draw:style-name="fr3" draw:name="graphics3" text:anchor-type="paragraph" svg:x="8.781cm" svg:y="1.012cm" svg:width="8.19cm" svg:height="4.556cm" draw:z-index="6"><draw:image>
       <office:binary-data>iVBORw0KGgoAAAANSUhEUgAAC/cAAAaoCAYAAAB8pcoPAAAABHNCSVQICAgIfAhkiAAAAAlw
        SFlzAAAuIwAALiMBeKU/dgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoA
        ACAASURBVHic7N151PdlXSfw9/d5eJBdcN8QFBUwm3JMoVxCczQ3tBotTe1QZuXgaC5hnU42
@@ -7172,10 +7177,10 @@
     </draw:frame>WeCompare is a system allowing to make comparisons between different things on the web.</text:p>
    <text:p text:style-name="Standard">When people usually want to compare three different restaurants; they go on the web, find the website of each of the restaurants and write on a piece of paper the different attributes they are interested in. Once they have the attributes they are interested in for each restaurant, they make a comparison between all three of them and make their choice.</text:p>
    <text:p text:style-name="P6">This goes for anything, not just restaurants. Travels, cars, clothing, apartments or computers could be another example.</text:p>
-   <text:p text:style-name="P6">With WeCompare we wanted to speed up this process by allowing the user to have some sort of interface allowing while surfing on websites, to take the information that is interesting and to put it in some sort of list, so that a user can retrieve it easily when he is ready to make a comparison. We also wanted to display the information in a way that helps the user make the comparison; and the main goal is that all of this should be easier and faster using our system than doing it the old way with paper and pencil.</text:p>
+   <text:p text:style-name="P6">With WeCompare we wanted to speed up this process by allowing the user to have some sort of interface allowing, while surfing on websites, to take the information that is interesting and to put it in some sort of list, so that a user can retrieve it easily when he is ready to make a comparison. We also wanted to display the information in a way that helps the user make the comparison; and the main goal is that all of this should be easier and faster using our system than doing it the old way with paper and pencil.</text:p>
    <text:p text:style-name="P6"/>
    <text:p text:style-name="P6">Another interesting thing we wanted to do with this project, is to take the information chosen by the user and turn it into RDF triples that we would store on a database, so that it could be reused by our or by other systems.</text:p>
-   <text:h text:style-name="Heading_20_2" text:outline-level="2"><draw:frame draw:style-name="fr2" draw:name="graphics5" text:anchor-type="paragraph" svg:x="7.643cm" svg:y="0.815cm" svg:width="9.359cm" svg:height="7.02cm" draw:z-index="7"><draw:image>
+   <text:h text:style-name="Heading_20_2" text:outline-level="2"><draw:frame draw:style-name="fr2" draw:name="graphics5" text:anchor-type="paragraph" svg:x="7.643cm" svg:y="0.815cm" svg:width="9.359cm" svg:height="7.02cm" draw:z-index="8"><draw:image>
       <office:binary-data>iVBORw0KGgoAAAANSUhEUgAADVUAAAoACAYAAAALUiNXAAAABHNCSVQICAgIfAhkiAAAAAlw
        SFlzAAAuIwAALiMBeKU/dgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoA
        ACAASURBVHic7N15uGRpXeD577uciLj35lZVWJQUUDQiNNAPMmiLiIL9dAHlMi0iM6AwgGIP
@@ -17916,13 +17921,13 @@
      </draw:image>
     </draw:frame>Implementation</text:h>
    <text:p text:style-name="P5">Our system is implemented as a client side application. Only the data storing is handled by the server.</text:p>
-   <text:p text:style-name="P5">We have decided that our system will be accessible by users as a webpage allowing them to surf on the internet while having a menu on the right side for the information retrieval. A user can drag and drop any information he finds useful into tags, for which he can choose a title, and once he is done with a page, he can save the information and go on another website. Once he feels he has enough material for a comparison, he can just click a button which will open a window with all the information regarding each website displayed in a way that will help him make the comparison.</text:p>
-   <text:p text:style-name="P5">All the information chosen by the user will also be turned into RDF triples and stored on <text:soft-page-break/>our server for later use.</text:p>
+   <text:p text:style-name="P5">We have decided that our system will be accessible by users as a webpage allowing them to surf on the internet while having a menu on the right side for the information retrieval. A user can drag and drop any information he finds useful into tags, for which he can choose a title, and once he is done with a page, <text:soft-page-break/>he can save the information and go on another website. Once he feels he has enough material for a comparison, he can just click a button which will open a window with all the information regarding each website displayed in a way that will help him make the comparison.</text:p>
+   <text:p text:style-name="P5">All the information chosen by the user will also be turned into RDF triples and stored on our server for later use.</text:p>
    <text:p text:style-name="P5">Since our system is a client side application, we decided to use Javascript as the language in which we coded the behavior of our system. The JQuery library also seemed to be a good way to improve the possibilities and to do the graphical part of our system.</text:p>
    <text:p text:style-name="P5">For the database, we chose to use Redstore, which is a lightweight triplestore allowing us to store RDF triples and make queries on the stored data.</text:p>
    <text:p text:style-name="P5">To communicate between our system and the database, we use rdfQuery, which is an easy-to-use Javascript library for RDF-related processing. We can use it to parse RDF embedded in our page, query over the facts it contains and work in concert with our server-side triplestore.</text:p>
-   <text:p text:style-name="P5">The website is finally hosted with apache. Apache is configured with a proxy to redirect certain URLs on port 80 to port 8989, where Redstore runs. Otherwise javascript would not be able to connect to Redstore because of security reasons.</text:p>
-   <text:p text:style-name="P5"><draw:frame draw:style-name="fr4" draw:name="graphics6" text:anchor-type="paragraph" svg:x="4.124cm" svg:y="1.647cm" svg:width="7.985cm" svg:height="2.849cm" draw:z-index="9"><draw:image>
+   <text:p text:style-name="P5">The website is finally hosted with apache. Apache is configured with a proxy to redirect certain URLs on port 80 to port 8989, where Redstore runs. Otherwise Javascript would not be able to connect to Redstore because of security reasons.</text:p>
+   <text:p text:style-name="P5"><draw:frame draw:style-name="fr4" draw:name="graphics6" text:anchor-type="paragraph" svg:x="4.124cm" svg:y="1.647cm" svg:width="7.985cm" svg:height="2.849cm" draw:z-index="10"><draw:image>
       <office:binary-data>iVBORw0KGgoAAAANSUhEUgAAAZ8AAACUCAIAAADDMLO0AAAAA3NCSVQICAjb4U/gAAAAGXRF
        WHRTb2Z0d2FyZQBnbm9tZS1zY3JlZW5zaG907wO/PgAAG09JREFUeJztnXl0VFWex39vqSU7
        IUAgkTTBhGw00HZCmkTSCgQOeATFbZAWM4A6MAlG247ijDZLs7oxIKCj0wIeuo9ntOnltMcl
@@ -18057,16 +18062,16 @@
        BQCYk/8HUSfV6ct//20AAAAASUVORK5CYII=
       </office:binary-data>
      </draw:image>
-    </draw:frame>To be able to work easier on the project, we added a small tag on the bottom of each page. This tag shows the current git version. Like this it&apos;s very easy to see on which version you are looking at.</text:p>
+    </draw:frame>To be able to work easier on the project, we added a small tag on the bottom of each page. This tag shows the current git version. Like this it&apos;s very easy to see on which version you are currently working.</text:p>
    <text:p text:style-name="P5"/>
    <text:p text:style-name="Standard"><text:span text:style-name="T1">Further we added a cgi script on the server, which enables each developer to update the git repository on the server by simply opening the URL </text:span><text:a xlink:type="simple" xlink:href="http://www.wecompare.ch/git/pull.sh">http://www.wecompare.ch/git/pull.sh</text:a> <text:span text:style-name="T1">in his browser. This helped a lot for fast development cycles, and enabled us to do a lot of testing, directly on the final product.</text:span></text:p>
    <text:p text:style-name="P5">Finally all the images we used on the page, inclusive background, are hand drawings specially done for our needs or were created using Inkscape. We used random numbers to shuffle the images on the start page, generating us 27 different start pages. Each time the user visits us, it looks a bit different. This should make sure the page stays interesting, even after the 10th visit.</text:p>
-   <text:h text:style-name="Heading_20_2" text:outline-level="2">How<text:span text:style-name="T3"> </text:span>does<text:span text:style-name="T3"> </text:span>our<text:span text:style-name="T3"> </text:span>system<text:span text:style-name="T3"> </text:span>work?</text:h>
+   <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:soft-page-break/>How<text:span text:style-name="T3"> </text:span>does<text:span text:style-name="T3"> </text:span>our<text:span text:style-name="T3"> </text:span>system<text:span text:style-name="T3"> </text:span>work?</text:h>
    <text:p text:style-name="P6">Basically, a user has to connect on our webpage:</text:p>
    <text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="http://www.wecompare.ch/"><text:span text:style-name="T2">http://www.wecompare.ch/</text:span></text:a></text:p>
    <text:p text:style-name="P6">Once he reaches the home page, he has to enter the first website he wants to visit for his comparison. When this is done, another page is loaded.</text:p>
    <text:p text:style-name="P6">On the new page, the user has a browser on the left which is currently browsing the page he asked, and a textarea above the browser in case he wants to enter the address of another webpage.</text:p>
-   <text:p text:style-name="P6"><draw:frame draw:style-name="fr5" draw:name="graphics1" text:anchor-type="paragraph" svg:x="5.539cm" svg:y="0.007cm" svg:width="11.43cm" svg:height="7.14cm" draw:z-index="8"><draw:image>
+   <text:p text:style-name="P6"><draw:frame draw:style-name="fr5" draw:name="graphics1" text:anchor-type="paragraph" svg:x="5.539cm" svg:y="0.007cm" svg:width="11.43cm" svg:height="7.14cm" draw:z-index="9"><draw:image>
       <office:binary-data>iVBORw0KGgoAAAANSUhEUgAABaAAAAOECAIAAADYLwGFAAAAA3NCSVQICAjb4U/gAAAAGXRF
        WHRTb2Z0d2FyZQBnbm9tZS1zY3JlZW5zaG907wO/PgAAIABJREFUeJzsnXeAFEXWwF9V96Sd
        2bxsYPMSlrjkJSclg4CgYMCAglnPz7sznPE4PT0TpjMrqIiKgoiIisiRJOe0gc057+zkDlX1
@@ -23179,22 +23184,26 @@
        5AFmiIvq4QAAAABJRU5ErkJggg==
       </office:binary-data>
      </draw:image>
-    </draw:frame><text:soft-page-break/>On the right he has the possibility to create a new tag by clicking a button. The total number of tags that can be opened has been fixed to ten. Each tag when opened is empty. The user can choose a title for its tag in a list containing all the titles possible for the given webpage. He can also create his own title by clicking on a button.</text:p>
+    </draw:frame>On the right he has the possibility to create a new tag by clicking a button. The total number of tags that can be opened has been fixed to ten. Each tag when opened is empty. The user can choose a title for its tag in a list containing all the titles possible for the given webpage. We took a list of already existing title from <text:a xlink:type="simple" xlink:href="http://www.schema.org/">www.schema.org</text:a>. The user can also create his own title by clicking on a button.</text:p>
    <text:p text:style-name="P6"/>
    <text:p text:style-name="P6">The user should drag and drop all the information he needs from the website into the tags. Once this is done, he just has to click on a button which will open a new window with the list for the comparison or another which will open a new website and store the previous information. All the data put into the tags is transformed into RDF triples and stored on the database for further use. </text:p>
    <text:p text:style-name="P6"/>
+   <text:p text:style-name="P6">The comparison window shows a table with every website browsed and the different tags chosen. The user can then compare the different pieces of information he put in the tags. We added some features to help the user make the comparison. Lines can be reordered by the user in different ways to give him better readability.</text:p>
+   <text:h text:style-name="Heading_20_2" text:outline-level="2">Testing</text:h>
+   <text:p text:style-name="P6">Once we had finished with the development part of the system we put it on the web and <text:soft-page-break/>ran some tests, so as to see if the users would feel comfortable using it and to build up the data on our database. We asked 6 people to make a certain number of comparisons, rate the system and then we checked our database for the created triples.</text:p>
    <text:p text:style-name="P6"/>
+   <text:p text:style-name="P6">Basically, <text:s/>the users found the system a bit complicated in the beginning, therefore we added a small guide on the main page. But once they had spent a few minutes on it, they started to feel comfortable using it. We asked them to make a few comparisons on the website of the university of Fribourg in order to add some data in the database that could be reused by the other testers.</text:p>
+   <text:p text:style-name="P6"/>
+   <text:p text:style-name="P6">We can see that the database is growing each time a user uses our system. New RDF triples are added, created by the users. This is the crowd-sourcing aspect we wanted our system to have. We have data concerning any kind of information and we can order it regarding the websites from which it was taken. This will allow us to build huge amounts of RDF data in the future, that we will be able to use for different kinds of purposes.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2">Problems<text:span text:style-name="T3"> </text:span>encountered</text:h>
    <text:p text:style-name="P6">We had some problems coding in Javascript, since none of us ever really used it for a serious project before. We had to spend some time before getting comfortable coding in it and using the JQuery library.</text:p>
    <text:p text:style-name="P6"/>
    <text:p text:style-name="P6">One of the biggest problems we encountered was the connection between the database and the client sided application. Indeed, connecting and querying the database from Javascript was really problematic, and rdfQuery was not as useful as we expected it to be. RdfQuery helped us to create databanks to store the information for each webpage in regard of future comparison; it was however useless to connect to the query the database and we had to find another way using Ajax to do so.</text:p>
-   <text:p text:style-name="P6">Further it was not easy to set up the server, with exact the behavior we needed. We needed to compile our own apache and with proxy enabled and configure it. To make it possible for javascript to directly connect to the server, we needed to redirect certain parts of a url inside apache to another port on the same machine.</text:p>
+   <text:p text:style-name="P6">Further it was not easy to set up the server, with exact the behavior we needed. We needed to compile our own apache and with proxy enabled and configure it. To make it possible for Javascript to directly connect to the server, we needed to redirect certain parts of a url inside apache to another port on the same machine.</text:p>
    <text:h text:style-name="P11" text:outline-level="1">Improvements</text:h>
-   <text:p text:style-name="P6">Our system offers basic functionalities; we could however improve many things.</text:p>
+   <text:p text:style-name="P6">Our system offers basic functionality; we could however improve many things.</text:p>
    <text:p text:style-name="P6"/>
-   <text:p text:style-name="P6">The first thing is, except for the titles possible for each tag, we do not really reuse the data <text:soft-page-break/>we stored on the triplestore. We thought about how to reuse the data another user already selected for a given webpage, but couldn’t really agree between us on how this should be done. This data however should be reused in a way improving the quality of the service each time a user uses our system.</text:p>
-   <text:p text:style-name="P6"/>
-   <text:p text:style-name="P7">We could also improve the comparison window by allowing the user to select different options to rearrange data or to change the display of the result.</text:p>
+   <text:p text:style-name="P6">The first thing is, except for the titles possible for each tag, we do not really reuse the data we stored on the triplestore. We thought about how to reuse the data another user already <text:soft-page-break/>selected for a given webpage, but couldn’t really agree between us on how this should be done. This data however should be reused in a way improving the quality of the service each time a user uses our system.</text:p>
    <text:h text:style-name="P11" text:outline-level="1">What<text:span text:style-name="T3"> </text:span>we<text:span text:style-name="T3"> </text:span>learned</text:h>
    <text:p text:style-name="P6">We all got to learn how to code using Javascript, which is a good experience. We also learned how to manipulate and query RDF data on a database.</text:p>
    <text:p text:style-name="P6">We now have gained some experience with each element we had to use in this project such as Jquery, Redstore and Apache.</text:p>
