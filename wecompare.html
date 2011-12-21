@@ -68,7 +68,7 @@
    }
 
    function ChangeContent(number) {
-	var content = document.getElementById("textarea" + number)).value;
+	var content = document.getElementById("textarea" + number).value;
 	content = content.trim();
 	if (content.length == 0) {
 		$(document.getElementById("textarea" + number)).val('');
