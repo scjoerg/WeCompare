@@ -123,10 +123,12 @@ $(document).ready(function () {
 
 
        $("#newcomparebutton").click(function () {
+	   if(confirm("This will erase your comparision! Do you really want this?")) {
            sid = Math.uuid();
            setCookie('wc_sid', sid, 10);
            $("#debug").html(sid);
 	   location.href='wecompare.html';
+	   }
        });
 
 
