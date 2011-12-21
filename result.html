@@ -5,30 +5,23 @@
 	<meta charset="utf-8">
 	<title>weCompare - List</title>
 	<link href="wecomparestyle.css" rel="stylesheet" type="text/css" />
-	 <script src="codebase/dhtmlxgrid_std.js" type="text/javascript"></script>
-
-<link rel="STYLESHEET" type="text/css" href="codebase/dhtmlxgrid.css">
-    <script src="codebase/dhtmlxcommon.js"></script>
-	    <script src="codebase/dhtmlxgrid.js"></script>
-		    <script src="codebase/dhtmlxgridcell.js"></script>
-
-	 <script>
-	         function buildInterface(){
-			             //entire code for interface init will go here
-			}
-			dhtmlxEvent(window,"load", buildInterface);
-	 </script>
+	<link rel="STYLESHEET" type="text/css" href="codebase/dhtmlxgrid.css">
 </head>
 <body>
 <!-- Script stuff -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script src="http://rdfquery.googlecode.com/files/jquery.rdfquery.core.min-1.0.js"></script>
 <script src="common.js"></script>
+<script  src="codebase/dhtmlxcommon.js"></script>
+<script  src="codebase/dhtmlxgrid.js"></script>        
+<script  src="codebase/dhtmlxgridcell.js"></script>    
+<script  src="codebase/ext/dhtmlxgrid_start.js"></script>
 
 <!-- Our code -->
 <script>
 // global variables
 var sid = null
+dhtmlx.skin = "dhx_skyblue";
 
 function loadResults() {
     $.getJSON('http://www.wecompare.ch/redstore/query?query=PREFIX+wc%3A+<http%3A%2F%2Fwecompare.ch%2F0.1%2F>%0D%0ASELECT+%3Fsite+%3Fv+%3Fo+WHERE+{%0D%0A+{wc%3A' + sid + '+wc%3Awebsite+%3Fsite}%0D%0A+{wc%3A' + sid + '+wc%3Atag+%3Ftag}%0D%0A+{%3Ftag+wc%3Awebsite+%3Fsite}%0D%0A+{%3Ftag+%3Fv+%3Fo}%0D%0A+FILTER+(%3Fsite+!%3D+%3Fo)%0D%0A}&lang=laqrs&format=json', function (data) {
@@ -69,16 +62,16 @@ function loadResults() {
         });
 
 //		print the arrays in a table
-        items.push('<table  border="2" > <tr> ');
+        items.push('<table id="tblResult" name="grid1" gridHeight="auto" style="width:400px" imgpath="codebase/imgs/" border="1" lightnavigation="true"> <tr> ');
         var temp=0;
         var depth=0;
         while (depth < storage.length) {
 	        while (temp < storage[0].length) {
 			if(typeof storage[depth][temp] == 'undefined') {
-				items.push('<th> - </th> ');
+				items.push('<td> - </td> ');
 			}
 			else {
-	        		items.push('<th> '+storage[depth][temp]+' </th>');
+	        		items.push('<td> '+storage[depth][temp]+' </td>');
 			}
    	 	    	++temp;
 	   	    }
@@ -91,60 +84,17 @@ function loadResults() {
         items.push('<small> '+(storage[0].length-1)+' attributes on '+(storage.length-1)+' pages </small>');
 
  
-		var mygrid;
-		mygrid = new dhtmlXGridObject('mygrid_container');
-
-		temp=0;
-		var heading="";
-		var lengthstring="";
-		var sorting="";
-		while (temp < storage[0].length) {
-			lengthstring+="200";
-			sorting+="str";
-			heading=heading+storage[0][temp];
-			if (temp != (storage[0].length-1)) {
-				heading=heading+",";
-				lengthstring+=",";
-				sorting+=",";
-			}
-			++temp;
-		}
-		mygrid.setImagePath("codebase/imgs/");
-     //   mygrid.setHeader(heading.toString());
-     	mygrid.setHeader(heading);
-        mygrid.setInitWidths(lengthstring);
-        mygrid.setColAlign("left,right,right");
-	    mygrid.setSkin("light");
-		mygrid.setColSorting(sorting);
-	    mygrid.init();
-
-	temp=0;
-	depth=1;
-	var data="";
-	while (depth < storage.length) {
-		data="";
-		temp=0;
-		while ( temp<storage[0].length) {
-			if(typeof storage[depth][temp] == 'undefined') {
-				data+="-"
-			}
-			else {
-				data+=storage[depth][temp];
-			}
-			if(temp != storage[0].length-1) {
-				data+=",";
-			}
-			++temp;
-		}
-		var newId = (new Date()).valueOf();
-	        mygrid.addRow(newId,data,mygrid.getRowsNum());
-		++depth;
-	}
-        $('<ul/>', {
+        $('<div/>', {
             'class': 'my-new-list',
             html: items.join('')
         }).appendTo('#results');
+
+
+	new dhtmlXGridFromTable('tblResult');
+
     });
+
+	
 
 };
 
@@ -168,27 +118,16 @@ $(document).ready(function () {
 
 
     loadResults();
+
 });    
     
    </script>
 
     <div style="width: 73%; height: 100%; left:0px; top: 0px; position:absolute;" class="frame">
-	  <img id="title" src="images/results/results.gif" width="333" style="margin-top: 30px;" /> <br />
-	<div id="results"> </div>
-	    </div>
-    <div style=" width: 27%;height: 100%; right:0px; top:0px; position: absolute;" class="attributes">
-        <div style="padding-left: 2px; top: 30px; position: absolute; color: blue;">
-            <div style="border: 1px; padding: 5px; margin: 0px auto;">
-                    <div>
-                    </div>
-                <div id="tagslist">
-                </div>
-				<br /> <br />
-				<div id="mygrid_container" style="width:600px;height:600px;"></div>
-            </div>
-        </div>
-     <span style="font-size: 8pt; bottom: 0px; right: 2px; position: absolute;"><span id="debug"></span> $Id$</span>
+	<img id="title" src="images/results/results.gif" width="333" style="margin-top: 30px;" /> <br />
+	<div style="position: absolute; left: 20px" id="results">
+	</div>
+	<span style="font-size: 8pt; bottom: 0px; right: 2px; position: absolute;"><span id="debug"></span> $Id$</span>
     </div>
-
- </body>
- </html>
+</body>
+</html>
