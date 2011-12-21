@@ -32,3 +32,20 @@ body
 	background: url("images/index/drawing.png");
 	font-weight: bold;
 }
+
+div.info
+{
+font-family: Tahoma, sans-serif;
+width:600px;
+min-height:40px; /*min height of DIV should be set to at least 2x the width of the arrow*/
+background: gray;
+color:white;
+padding:5px;
+position:relative;
+word-wrap:break-word;
+-moz-border-radius:10px; /*add some nice CSS3 round corners*/
+-webkit-border-radius:10px;
+border-radius:10px;
+margin-bottom:2em;
+margin-top:2em;
+}
