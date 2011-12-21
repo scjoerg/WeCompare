@@ -22,6 +22,22 @@ SELECT * WHERE {
 } LIMIT 10
 
 
+
+**** Query to get every learned triple back!
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wc: <http://wecompare.ch/0.1/>
+
+SELECT DISTINCT ?site ?v ?o  WHERE {
+ {?tag wc:website ?site}
+ {?tag ?attributetitle ?values}
+ FILTER ( ?attributetitle != wc:website )
+ FILTER ( ?attributetitle != wc:tag )
+ {?tag ?v ?o}
+} LIMIT 1000
+
+
 ***** Query to get all attributes from one Website, not session based
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -32,39 +48,9 @@ SELECT DISTINCT ?attributetitle (SAMPLE(?values) AS ?attributevalue)  WHERE {
  {?tag ?attributetitle ?values}
  FILTER ( ?attributetitle != wc:website )
  FILTER ( ?attributetitle != wc:tag )
-} GROUP BY ?attributetitle
-
-**** Query and give only ?site and ?tag back
-
-
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX wc: <http://wecompare.ch/0.1/>
-
-SELECT ?site ?v ?o  WHERE {
- {?session wc:website ?site}
- {?session wc:tag ?tag}
- {?tag ?v ?o}
-} LIMIT 10
-
-**** Query to get the titles for a given website
-
-
-
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX wc: <http://wecompare.ch/0.1/>
-PREFIX purl: <http://purl.org/dc/elements/1.1/>
-
-SELECT DISTINCT ?title WHERE {
-  ?sid wc:website "http://www.unifr.ch/" .
-  ?sid wc:tag ?tagident .
-  ?tagident purl:title ?title
-}
+} GROUP BY ?attributetitle LIMIT 1000
 
 **** Query to get the content for a given website and title
-
-
 
 PREFIX wc: <http://wecompare.ch/0.1/>
 PREFIX title: <http://schema.org/0.9/>
