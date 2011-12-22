@@ -1,0 +1,10 @@
+#!/usr/bin/gnuplot
+set size 2,2
+set term postscript eps enhanced color 22
+set output "wecomparestats.eps"
+set xlabel "minutes from midnight"
+set ylabel "database size"
+set y2label "writeset size"
+set y2tics auto
+set title "Official Stats from WeCompare.ch"
+plot "plotdata" using 0:2 with lines title "Data Base Entrys"

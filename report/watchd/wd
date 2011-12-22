@@ -1,0 +1,8 @@
+while :
+do
+curl "http://arkania.dyndns.org:9898/query?query=PREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0A%0D%0ASELECT+%28COUNT%28*%29+AS+%3Fcount%29+%7B%0D%0A+%7B%3Fs+%3Fp+%3Fo%7D%0D%0A%7D%0D%0A&lang=laqrs&format=html" | grep "<td><span class=\"literal\"" | cut -d'>' -f4 | cut -d'<' -f1 >> values
+
+date '+%H'*60'+%M' | bc >> time
+
+sleep 60
+done

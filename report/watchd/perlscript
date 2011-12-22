@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+
+my @lines = `cat values`;
+my $counter=176;
+for my $line (@lines) {
+	print "$counter 310 $line";
+	++$counter;
+}
